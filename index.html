@@ -23,6 +23,7 @@
             <a href="#why-vpi">Why VPI?</a>
             <a href="#visions">Visions for 2027</a>
             <a href="#memories">Memories</a>
+            <a href="#contact">Get in Contact</a>
         </nav>
     </header>
 
@@ -378,6 +379,43 @@
         </div>
 
     </section>
+
+    <!-- =========================
+        Empty Section
+    ========================= -->
+
+    <section id="contact" class="section green">
+        <div class="section-sidebar">
+            <div class="section-label">Get in Contact</div>
+            <div class="section-line"></div>
+            <div class="section-number">08</div>
+        </div>
+
+        <div class="section-content">
+            <h2>Get in Contact</h2>
+
+            <p>
+                Thanks for taking the time to read this!!! If you wanna get in contact with me, feel free to try the links below <3
+            </p>
+
+            <div class="contact-links">
+                <a href="https://www.instagram.com/chrims_s/" class="contact-link" target="_blank" rel="noopener noreferrer">
+                    <div class="contact-logo"><img src="images/instagram-logo.png" alt="Instagram logo"></div>
+                    <span>Instagram</span>
+                </a>
+
+                <a href="https://www.facebook.com/christopher.szeto.5/" class="contact-link" target="_blank" rel="noopener noreferrer">
+                    <div class="contact-logo"><img src="images/facebook-logo.png" alt="Facebook logo"></div>
+                    <span>Facebook</span>
+                </a>
+            </div>
+
+            <p class="contact-final">
+                And lastly, if you agree with my visions for 2027, please vote Chris Szeto for VPI!!
+            </p>
+        </div>
+    </section>
+
     <!-- Events + Initiatives Individual Carousels -->
     <div class="event-lightbox" id="eventLightbox" aria-hidden="true">
         <div class="event-lightbox-backdrop"></div>
@@ -621,7 +659,15 @@
         lightboxClose.addEventListener('click', closeLightbox);
         lightboxBackdrop.addEventListener('click', closeLightbox);
         document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+            if (event.key !== 'Escape') return;
+
+            if (eventLightbox.classList.contains('open')) {
+                closeEventLightbox();
+            }
+
+            if (lightbox.classList.contains('open')) {
+                closeLightbox();
+            }
         });
     </script>
 </body>

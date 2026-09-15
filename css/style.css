@@ -533,3 +533,75 @@ body.lightbox-open { overflow: hidden; }
 .event-lightbox-close:hover { opacity: .7; }
 .event-lightbox-counter { position: absolute; bottom: -38px; left: 50%; transform: translateX(-50%); color: white; font-size: 14px; letter-spacing: .5px; text-shadow: 0 1px 3px rgba(0,0,0,.35); }
 @media (max-width:700px) { .event-lightbox { padding: 25px; } .event-lightbox-content { width: 100%; } .event-lightbox-viewport { width: calc(100vw - 110px); } .event-lightbox-button { flex-basis: 34px; width: 34px; height: 34px; font-size: 15px; } .event-lightbox-track img { height: 100%; } .event-lightbox-close { top: -45px; right: 0; } }
+
+
+/* =========================
+   Get in Contact Section
+========================= */
+
+
+/* =========================
+   Get in Contact
+========================= */
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 35px;
+    max-width: 420px;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 18px;
+    border: 1px solid rgba(83, 100, 117, 0.22);
+    border-radius: 4px;
+    color: #263b4b;
+    text-decoration: none;
+    font-size: 17px;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.contact-link:hover {
+    background: rgba(255, 255, 255, 0.55);
+    transform: translateX(4px);
+}
+
+.contact-logo {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(83, 100, 117, 0.35);
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #536475;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+
+/* =========================
+   Get in Contact Updates
+========================= */
+
+.contact-final {
+    margin-top: 38px !important;
+}
+
+.contact-logo {
+    overflow: hidden;
+}
+
+.contact-logo img {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+    display: block;
+}
