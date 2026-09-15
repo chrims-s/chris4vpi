@@ -240,7 +240,7 @@
             </p>
 
             <p>
-                Of course, the VPI has written responsibilities and duties, but I’ve
+                Of course, the VPI has its written responsibilities and duties, but I’ve
                 come to realise that the role is much more than that. The current VPI
                 has shown me that being VPI is about showing up and supporting the
                 internal team, whether that means pulling up to events, lending a
@@ -350,26 +350,26 @@
 
                 <div class="carousel-viewport">
                     <div class="carousel-track">
-                        <img src="images/memory-1.jpeg" alt="memory photo 1">
-                        <img src="images/memory-2.jpeg" alt="memory photo 2">
-                        <img src="images/memory-3.jpeg" alt="memory photo 3">
-                        <img src="images/memory-4.jpeg" alt="memory photo 4">
-                        <img src="images/memory-5.jpeg" alt="memory photo 5">
-                        <img src="images/memory-6.jpeg" alt="memory photo 6">
-                        <img src="images/memory-7.jpeg" alt="memory photo 7">
-                        <img src="images/memory-8.jpeg" alt="memory photo 8">
-                        <img src="images/memory-9.jpeg" alt="memory photo 9">
-                        <img src="images/memory-10.jpeg" alt="memory photo 10">
-                        <img src="images/memory-11.jpeg" alt="memory photo 11">
-                        <img src="images/memory-12.jpeg" alt="memory photo 12">
-                        <img src="images/memory-13.jpeg" alt="memory photo 13">
-                        <img src="images/memory-14.jpeg" alt="memory photo 14">
-                        <img src="images/memory-15.jpeg" alt="memory photo 15">
-                        <img src="images/memory-16.jpeg" alt="memory photo 16">
-                        <img src="images/memory-17.jpeg" alt="memory photo 17">
-                        <img src="images/memory-18.jpeg" alt="memory photo 18">
-                        <img src="images/memory-19.jpeg" alt="memory photo 19">
-                        <img src="images/memory-20.jpeg" alt="memory photo 20">
+                        <img src="images/memory-1.jpeg" alt="First ever CSE bonding!!! (SHOUTOUT TO CREATIVE)">
+                        <img src="images/memory-2.jpeg" alt="HR at Socwide Roadtrip '25 😊😁">
+                        <img src="images/memory-3.jpeg" alt="🏸🏸 with Outreach '25">
+                        <img src="images/memory-4.jpeg" alt="CSE '25 Ball!!!">
+                        <img src="images/memory-5.jpeg" alt="One of many random photo booths with HR...">
+                        <img src="images/memory-6.jpeg" alt="24/7 at uni challenge">
+                        <img src="images/memory-7.jpeg" alt="Making 🥟🥟 with HR '25">
+                        <img src="images/memory-8.jpeg" alt="Aura">
+                        <img src="images/memory-9.jpeg" alt="CUTE <3">
+                        <img src="images/memory-10.jpeg" alt="HR '25 Roadtrip 😊😊">
+                        <img src="images/memory-11.jpeg" alt="CSE '25 Outduction </3">
+                        <img src="images/memory-12.jpeg" alt="🗣️🗣️ at Director Roadtrip">
+                        <img src="images/memory-13.jpeg" alt="HR 2026 and the start of a new era...">
+                        <img src="images/memory-14.jpeg" alt="Running back 🥟🥟 with HR'26!!">
+                        <img src="images/memory-15.jpeg" alt="FIRST staycay with '26">
+                        <img src="images/memory-16.jpeg" alt="Cute pit stop for 🥧 at Socwide '26">
+                        <img src="images/memory-17.jpeg" alt="❤️❤️❤️ HR!!!">
+                        <img src="images/memory-18.jpeg" alt="TUFF ahh photo at Cruise 🚢🚢">
+                        <img src="images/memory-19.jpeg" alt="Cheeky lil Ski trip 💙💙">
+                        <img src="images/memory-20.jpeg" alt="HORROR 👻👻 ESCAPE ROOM">
                     </div>
                 </div>
 
@@ -425,6 +425,11 @@
 
             <button class="event-lightbox-close" type="button"
                     aria-label="Close expanded photos">&times;</button>
+
+            <div class="event-lightbox-info">
+                <div class="event-lightbox-title" id="eventLightboxTitle">Event title</div>
+                <div class="event-lightbox-caption" id="eventLightboxCaption">Placeholder picture description.</div>
+            </div>
 
             <button class="event-lightbox-button prev" type="button"
                     aria-label="Previous photo">&#10094;</button>
@@ -499,68 +504,141 @@
         const eventNextButton = eventLightbox.querySelector('.event-lightbox-button.next');
         const eventCounter = document.getElementById('eventLightboxCounter');
 
-        // Change these filenames to the 5 images belonging to each event.
+        // Change these filenames to the images belonging to each event.
         // Each inner array represents ONE event's carousel.
-        const eventPhotoSets = [
-            [
-                'images/events-1.jpeg',
-                'images/events-1-2.jpeg',
-                'images/events-1-3.jpeg',
-                'images/events-1-4.jpeg',
-                'images/events-1-5.jpeg',
-                'images/events-1-6.jpeg'
-            ],
-            [
-                'images/events-2.jpeg',
-                'images/events-2-2.jpeg',
-                'images/events-2-3.jpeg',
-                'images/events-2-4.jpeg',
-                'images/events-2-5.jpeg',
-                'images/events-2-6.jpeg'
-            ],
-            [
-                'images/events-3.jpeg',
-                'images/events-3-2.jpeg',
-                'images/events-3-3.jpeg',
-                'images/events-3-4.jpeg',
-                'images/events-3-5.jpeg',
-                'images/events-3-6.jpeg',
-                'images/events-3-7.jpeg'
-            ],
-            [
-                'images/events-4.jpeg',
-                'images/events-4-2.jpeg',
-                'images/events-4-3.jpeg',
-                'images/events-4-4.jpeg',
-                'images/events-4-5.jpeg',
-                'images/events-4-6.jpeg'
-            ],
-            [
-                'images/events-5.jpeg',
-                'images/events-5-2.jpeg',
-                'images/events-5-3.jpeg',
-                'images/events-5-4.jpeg',
-                'images/events-5-5.jpeg',
-                'images/events-5-6.jpeg',
-                'images/events-5-7.jpeg'
-            ],
-            [
-                'images/events-6.jpeg',
-                'images/events-6-2.jpeg',
-                'images/events-6-3.jpeg',
-                'images/events-6-4.jpeg',
-                'images/events-6-5.jpeg'
-            ]
+        const eventData = [
+            {
+                title: 'Socwide Roadtrip 2025',
+                photos: [
+                    'images/events-1.jpeg',
+                    'images/events-1-2.jpeg',
+                    'images/events-1-3.jpeg',
+                    'images/events-1-4.jpeg',
+                    'images/events-1-5.jpeg',
+                    'images/events-1-6.jpeg'
+                ],
+                descriptions: [
+                    'Banner',
+                    'Car ride on the way 🚗💨',
+                    'Cooking dinner on the first night 🍴😋',
+                    'Cheeky lil photo with HR, Careers and Outreach!!',
+                    '🎤🎤',
+                    'Socwide photo on the final day :('
+                ]
+            },
+            {
+                title: 'Picnic Day 2025',
+                photos: [
+                    'images/events-2.jpeg',
+                    'images/events-2-2.jpeg',
+                    'images/events-2-3.jpeg',
+                    'images/events-2-4.jpeg',
+                    'images/events-2-5.jpeg',
+                    'images/events-2-6.jpeg'
+                ],
+                descriptions: [
+                    'Banner',
+                    'Game of 🃏',
+                    '🎨☀️',
+                    'Yeahh he is NOT hitting that ball...',
+                    'Is he Sukuna???',
+                    'HR!!'
+                ]
+            },
+            {
+                title: 'Beach Day 2025',
+                photos: [
+                    'images/events-3.jpeg',
+                    'images/events-3-2.jpeg',
+                    'images/events-3-3.jpeg',
+                    'images/events-3-4.jpeg',
+                    'images/events-3-5.jpeg',
+                    'images/events-3-6.jpeg'
+                ],
+                descriptions: [
+                    'Banner',
+                    'Buried in the sand',
+                    'TUG OF WAR ⚔️💥',
+                    '🌊🌊🌊',
+                    '<3 my homies',
+                    'Shoutout to everyone who came Beach Day!!'
+                ]
+            },
+            {
+                title: 'Bounce 2026',
+                photos: [
+                    'images/events-4.jpeg',
+                    'images/events-4-2.jpeg',
+                    'images/events-4-3.jpeg',
+                    'images/events-4-4.jpeg',
+                    'images/events-4-5.jpeg',
+                    'images/events-4-6.jpeg'
+                ],
+                descriptions: [
+                    'Banner',
+                    'HR 2026 🫰😊🫰',
+                    'BOUNCE ATTENDANCE 🥳🥳',
+                    'Dinner haps 😋',
+                    'Yummy bingsu',
+                    'Cheeky rooftop yaps'
+                ]
+            },
+            {
+                title: 'Socwide Roadtrip 2026',
+                photos: [
+                    'images/events-5.jpeg',
+                    'images/events-5-2.jpeg',
+                    'images/events-5-3.jpeg',
+                    'images/events-5-4.jpeg',
+                    'images/events-5-5.jpeg',
+                    'images/events-5-6.jpeg',
+                    'images/events-5-7.jpeg'
+                ],
+                descriptions: [
+                    'Banner',
+                    'Getting to know one another on the first day!!',
+                    'zzzzzz',
+                    'Breakfast after a hard night...',
+                    'Betty\'s Burgers!!',
+                    '🏖️🏖️🌊',
+                    'W SOCWIDE ROADTRIP 🦅🦅✊'
+                ]
+            },
+            {
+                title: 'Movie Night 2026',
+                photos: [
+                    'images/events-6.jpeg',
+                    'images/events-6-2.jpeg',
+                    'images/events-6-3.jpeg',
+                    'images/events-6-4.jpeg',
+                    'images/events-6-5.jpeg'
+                ],
+                descriptions: [
+                    'Banner',
+                    'TONS of food',
+                    '🍗🍟🥤',
+                    'Wow looks yummy...',
+                    'Shoutout to HR 🎉🎉'
+                ]
+            }
         ];
+
+        const eventPhotoSets = eventData.map(event => event.photos);
 
         let eventCurrentIndex = 0;
         let currentEventPhotos = [];
+        let activeEventIndex = 0;
+
+        const eventTitle = document.getElementById('eventLightboxTitle');
+        const eventCaption = document.getElementById('eventLightboxCaption');
 
         function buildEventCarousel(eventIndex) {
-            currentEventPhotos = eventPhotoSets[eventIndex];
+            const event = eventData[eventIndex];
+            currentEventPhotos = event.photos;
 
+            eventTitle.textContent = event.title;
             eventLightboxTrack.innerHTML = currentEventPhotos.map((src, index) =>
-                `<img src="${src}" alt="Event ${eventIndex + 1} photo ${index + 1}">`
+                `<img src="${src}" alt="${event.title} photo ${index + 1}">`
             ).join('');
 
             eventCurrentIndex = 0;
@@ -574,12 +652,15 @@
             eventCounter.textContent =
                 `${eventCurrentIndex + 1} / ${currentEventPhotos.length}`;
 
+            eventCaption.textContent = eventData[activeEventIndex].descriptions[eventCurrentIndex];
+
             eventPrevButton.disabled = eventCurrentIndex === 0;
             eventNextButton.disabled =
                 eventCurrentIndex === currentEventPhotos.length - 1;
         }
 
         function openEventLightbox(eventIndex) {
+            activeEventIndex = eventIndex;
             buildEventCarousel(eventIndex);
 
             eventLightbox.classList.add('open');
