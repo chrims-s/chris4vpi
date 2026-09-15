@@ -53,7 +53,7 @@
             </div>
 
             <div class="intro-photo">
-                <img src="images/intro-1.png" alt="photo of directors">
+                <img src="images/intro-1.jpeg" alt="photo of directors">
             </div>
 
         </div>
@@ -189,13 +189,25 @@
                 Here are some events that HR have hosted over the past two years:
             </p>
 
-            <div class="events-gallery">
-                <img src="images/events-1.png" alt="event photo 1">
-                <img src="images/events-2.png" alt="event photo 2">
-                <img src="images/events-3.png" alt="event photo 3">
-                <img src="images/events-4.png" alt="event photo 4">
-                <img src="images/events-5.png" alt="event photo 5">
-                <img src="images/events-6.png" alt="event photo 6">
+            <div class="events-gallery" aria-label="Events and initiatives">
+                <div class="event-card" tabindex="0" role="button" data-event="0">
+                    <img src="images/events-1.jpeg" alt="event photo 1">
+                </div>
+                <div class="event-card" tabindex="0" role="button" data-event="1">
+                    <img src="images/events-2.jpeg" alt="event photo 2">
+                </div>
+                <div class="event-card" tabindex="0" role="button" data-event="2">
+                    <img src="images/events-3.jpeg" alt="event photo 3">
+                </div>
+                <div class="event-card" tabindex="0" role="button" data-event="3">
+                    <img src="images/events-4.jpeg" alt="event photo 4">
+                </div>
+                <div class="event-card" tabindex="0" role="button" data-event="4">
+                    <img src="images/events-5.jpeg" alt="event photo 5">
+                </div>
+                <div class="event-card" tabindex="0" role="button" data-event="5">
+                    <img src="images/events-6.jpeg" alt="event photo 6">
+                </div>
             </div>
 
         </div>
@@ -337,26 +349,26 @@
 
                 <div class="carousel-viewport">
                     <div class="carousel-track">
-                        <img src="images/memory-1.png" alt="memory photo 1">
-                        <img src="images/memory-2.png" alt="memory photo 2">
-                        <img src="images/memory-3.png" alt="memory photo 3">
-                        <img src="images/memory-4.png" alt="memory photo 4">
-                        <img src="images/memory-5.png" alt="memory photo 5">
-                        <img src="images/memory-6.png" alt="memory photo 6">
-                        <img src="images/memory-7.png" alt="memory photo 7">
-                        <img src="images/memory-8.png" alt="memory photo 8">
-                        <img src="images/memory-9.png" alt="memory photo 9">
-                        <img src="images/memory-10.png" alt="memory photo 10">
-                        <img src="images/memory-11.png" alt="memory photo 11">
-                        <img src="images/memory-12.png" alt="memory photo 12">
-                        <img src="images/memory-13.png" alt="memory photo 13">
-                        <img src="images/memory-14.png" alt="memory photo 14">
-                        <img src="images/memory-15.png" alt="memory photo 15">
-                        <img src="images/memory-16.png" alt="memory photo 16">
-                        <img src="images/memory-17.png" alt="memory photo 17">
-                        <img src="images/memory-18.png" alt="memory photo 18">
-                        <img src="images/memory-19.png" alt="memory photo 19">
-                        <img src="images/memory-20.png" alt="memory photo 20">
+                        <img src="images/memory-1.jpeg" alt="memory photo 1">
+                        <img src="images/memory-2.jpeg" alt="memory photo 2">
+                        <img src="images/memory-3.jpeg" alt="memory photo 3">
+                        <img src="images/memory-4.jpeg" alt="memory photo 4">
+                        <img src="images/memory-5.jpeg" alt="memory photo 5">
+                        <img src="images/memory-6.jpeg" alt="memory photo 6">
+                        <img src="images/memory-7.jpeg" alt="memory photo 7">
+                        <img src="images/memory-8.jpeg" alt="memory photo 8">
+                        <img src="images/memory-9.jpeg" alt="memory photo 9">
+                        <img src="images/memory-10.jpeg" alt="memory photo 10">
+                        <img src="images/memory-11.jpeg" alt="memory photo 11">
+                        <img src="images/memory-12.jpeg" alt="memory photo 12">
+                        <img src="images/memory-13.jpeg" alt="memory photo 13">
+                        <img src="images/memory-14.jpeg" alt="memory photo 14">
+                        <img src="images/memory-15.jpeg" alt="memory photo 15">
+                        <img src="images/memory-16.jpeg" alt="memory photo 16">
+                        <img src="images/memory-17.jpeg" alt="memory photo 17">
+                        <img src="images/memory-18.jpeg" alt="memory photo 18">
+                        <img src="images/memory-19.jpeg" alt="memory photo 19">
+                        <img src="images/memory-20.jpeg" alt="memory photo 20">
                     </div>
                 </div>
 
@@ -366,6 +378,40 @@
         </div>
 
     </section>
+    <!-- Events + Initiatives Individual Carousels -->
+    <div class="event-lightbox" id="eventLightbox" aria-hidden="true">
+        <div class="event-lightbox-backdrop"></div>
+
+        <div class="event-lightbox-content" role="dialog" aria-modal="true"
+             aria-label="Event photo carousel">
+
+            <button class="event-lightbox-close" type="button"
+                    aria-label="Close expanded photos">&times;</button>
+
+            <button class="event-lightbox-button prev" type="button"
+                    aria-label="Previous photo">&#10094;</button>
+
+            <div class="event-lightbox-viewport">
+                <div class="event-lightbox-track" id="eventLightboxTrack"></div>
+            </div>
+
+            <button class="event-lightbox-button next" type="button"
+                    aria-label="Next photo">&#10095;</button>
+
+            <div class="event-lightbox-counter" id="eventLightboxCounter">1 / 5</div>
+        </div>
+    </div>
+
+    <!-- Memory Image Lightbox -->
+    <div class="memory-lightbox" id="memoryLightbox" aria-hidden="true">
+        <div class="memory-lightbox-backdrop"></div>
+        <div class="memory-lightbox-content" role="dialog" aria-modal="true" aria-label="Expanded memory photo">
+            <button class="memory-lightbox-close" type="button" aria-label="Close expanded photo">&times;</button>
+            <img id="memoryLightboxImage" src="" alt="">
+            <div class="memory-lightbox-caption" id="memoryLightboxCaption"></div>
+        </div>
+    </div>
+
     <script>
         const carousel = document.querySelector('.carousel');
         const track = carousel.querySelector('.carousel-track');
@@ -404,6 +450,179 @@
 
         window.addEventListener('resize', updateCarousel);
         updateCarousel();
+
+        // Events + Initiatives: each card has its own 5-photo carousel
+        const eventCards = Array.from(document.querySelectorAll('.event-card'));
+        const eventLightbox = document.getElementById('eventLightbox');
+        const eventLightboxTrack = document.getElementById('eventLightboxTrack');
+        const eventLightboxClose = eventLightbox.querySelector('.event-lightbox-close');
+        const eventLightboxBackdrop = eventLightbox.querySelector('.event-lightbox-backdrop');
+        const eventPrevButton = eventLightbox.querySelector('.event-lightbox-button.prev');
+        const eventNextButton = eventLightbox.querySelector('.event-lightbox-button.next');
+        const eventCounter = document.getElementById('eventLightboxCounter');
+
+        // Change these filenames to the 5 images belonging to each event.
+        // Each inner array represents ONE event's carousel.
+        const eventPhotoSets = [
+            [
+                'images/events-1.jpeg',
+                'images/events-1-2.jpeg',
+                'images/events-1-3.jpeg',
+                'images/events-1-4.jpeg',
+                'images/events-1-5.jpeg',
+                'images/events-1-6.jpeg'
+            ],
+            [
+                'images/events-2.jpeg',
+                'images/events-2-2.jpeg',
+                'images/events-2-3.jpeg',
+                'images/events-2-4.jpeg',
+                'images/events-2-5.jpeg',
+                'images/events-2-6.jpeg'
+            ],
+            [
+                'images/events-3.jpeg',
+                'images/events-3-2.jpeg',
+                'images/events-3-3.jpeg',
+                'images/events-3-4.jpeg',
+                'images/events-3-5.jpeg',
+                'images/events-3-6.jpeg',
+                'images/events-3-7.jpeg'
+            ],
+            [
+                'images/events-4.jpeg',
+                'images/events-4-2.jpeg',
+                'images/events-4-3.jpeg',
+                'images/events-4-4.jpeg',
+                'images/events-4-5.jpeg',
+                'images/events-4-6.jpeg'
+            ],
+            [
+                'images/events-5.jpeg',
+                'images/events-5-2.jpeg',
+                'images/events-5-3.jpeg',
+                'images/events-5-4.jpeg',
+                'images/events-5-5.jpeg',
+                'images/events-5-6.jpeg',
+                'images/events-5-7.jpeg'
+            ],
+            [
+                'images/events-6.jpeg',
+                'images/events-6-2.jpeg',
+                'images/events-6-3.jpeg',
+                'images/events-6-4.jpeg',
+                'images/events-6-5.jpeg'
+            ]
+        ];
+
+        let eventCurrentIndex = 0;
+        let currentEventPhotos = [];
+
+        function buildEventCarousel(eventIndex) {
+            currentEventPhotos = eventPhotoSets[eventIndex];
+
+            eventLightboxTrack.innerHTML = currentEventPhotos.map((src, index) =>
+                `<img src="${src}" alt="Event ${eventIndex + 1} photo ${index + 1}">`
+            ).join('');
+
+            eventCurrentIndex = 0;
+            updateEventLightbox();
+        }
+
+        function updateEventLightbox() {
+            eventLightboxTrack.style.transform =
+                `translateX(-${eventCurrentIndex * 100}%)`;
+
+            eventCounter.textContent =
+                `${eventCurrentIndex + 1} / ${currentEventPhotos.length}`;
+
+            eventPrevButton.disabled = eventCurrentIndex === 0;
+            eventNextButton.disabled =
+                eventCurrentIndex === currentEventPhotos.length - 1;
+        }
+
+        function openEventLightbox(eventIndex) {
+            buildEventCarousel(eventIndex);
+
+            eventLightbox.classList.add('open');
+            eventLightbox.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('lightbox-open');
+            eventLightboxClose.focus();
+        }
+
+        function closeEventLightbox() {
+            eventLightbox.classList.remove('open');
+            eventLightbox.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('lightbox-open');
+        }
+
+        eventCards.forEach((card) => {
+            const eventIndex = Number(card.dataset.event);
+
+            card.addEventListener('click', () => {
+                openEventLightbox(eventIndex);
+            });
+
+            card.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    openEventLightbox(eventIndex);
+                }
+            });
+        });
+
+        eventPrevButton.addEventListener('click', () => {
+            if (eventCurrentIndex > 0) {
+                eventCurrentIndex--;
+                updateEventLightbox();
+            }
+        });
+
+        eventNextButton.addEventListener('click', () => {
+            if (eventCurrentIndex < currentEventPhotos.length - 1) {
+                eventCurrentIndex++;
+                updateEventLightbox();
+            }
+        });
+
+        eventLightboxClose.addEventListener('click', closeEventLightbox);
+        eventLightboxBackdrop.addEventListener('click', closeEventLightbox);
+
+        // Memory image lightbox
+        const lightbox = document.getElementById('memoryLightbox');
+        const lightboxImage = document.getElementById('memoryLightboxImage');
+        const lightboxCaption = document.getElementById('memoryLightboxCaption');
+        const lightboxClose = lightbox.querySelector('.memory-lightbox-close');
+        const lightboxBackdrop = lightbox.querySelector('.memory-lightbox-backdrop');
+
+        track.querySelectorAll('img').forEach((image) => {
+            image.setAttribute('tabindex', '0');
+            image.setAttribute('role', 'button');
+            const openLightbox = () => {
+                lightboxImage.src = image.src;
+                lightboxImage.alt = image.alt;
+                lightboxCaption.textContent = image.dataset.caption || image.alt;
+                lightbox.classList.add('open');
+                lightbox.setAttribute('aria-hidden', 'false');
+                document.body.classList.add('lightbox-open');
+                lightboxClose.focus();
+            };
+            image.addEventListener('click', openLightbox);
+            image.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openLightbox(); }
+            });
+        });
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('open');
+            lightbox.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('lightbox-open');
+        };
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxBackdrop.addEventListener('click', closeLightbox);
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+        });
     </script>
 </body>
 </html>
