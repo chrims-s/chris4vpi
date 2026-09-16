@@ -666,3 +666,169 @@ body.lightbox-open { overflow: hidden; }
     object-fit: contain;
     display: block;
 }
+
+
+/* =========================
+   Intro Video Lightbox
+========================= */
+
+.intro-video-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.25s ease;
+    transform-origin: left center;
+}
+
+.intro-video-link:hover {
+    text-decoration: none;
+    transform: scale(1.08);
+}
+
+.intro-play-icon {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+}
+
+.intro-video-link:hover .intro-play-icon {
+    transform: scale(1.05);
+}
+
+.intro-video-link:hover {
+    text-underline-offset: 6px;
+}
+
+.intro-video-link:focus-visible {
+    outline: 2px solid #263b4b;
+    outline-offset: 5px;
+}
+
+.intro-video-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 2100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    box-sizing: border-box;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease, visibility .25s ease;
+}
+
+.intro-video-lightbox.open {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.intro-video-lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(20, 30, 38, .62);
+    backdrop-filter: blur(3px);
+}
+
+.intro-video-lightbox-content {
+    position: relative;
+    z-index: 1;
+    width: min(720px, 78vw);
+    max-height: 78vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro-video-lightbox-content video {
+    display: block;
+    width: 100%;
+    max-height: 72vh;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .3);
+    background: #000;
+}
+
+.intro-video-lightbox-close {
+    position: absolute;
+    top: -48px;
+    right: -4px;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: white;
+    font-size: 36px;
+    font-weight: 300;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.intro-video-lightbox-close:hover {
+    opacity: .7;
+}
+
+@media (max-width: 700px) {
+    .intro-video-lightbox {
+        padding: 25px;
+    }
+
+    .intro-video-lightbox-content {
+        width: 90vw;
+        max-height: 70vh;
+    }
+
+    .intro-video-lightbox-content video {
+        max-height: 64vh;
+    }
+
+    .intro-video-lightbox-close {
+        top: -44px;
+        right: 0;
+    }
+}
+
+
+.intro-video-play-button {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    padding: 14px 22px;
+    border: 1px solid rgba(255, 255, 255, .5);
+    border-radius: 4px;
+    background: rgba(20, 30, 38, .88);
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    z-index: 3;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, .3);
+}
+
+.intro-video-play-button.visible {
+    display: block;
+}
+
+.intro-video-play-button:hover {
+    background: rgba(38, 59, 75, .95);
+}
+
+@media (max-width: 700px) {
+    .intro-video-play-button {
+        padding: 12px 18px;
+        font-size: 14px;
+    }
+}

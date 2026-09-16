@@ -43,10 +43,20 @@
         <div class="section-content intro-content">
 
             <div class="intro-copy">
-                <h2>Hey, I'm Chris.</h2>
+                <h2>
+                    <a href="#" class="intro-video-link" id="introVideoLink">
+                        <img
+                            src="images/play-logo.png"
+                            alt=""
+                            class="intro-play-icon"
+                            aria-hidden="true"
+                        >
+                        Intro
+                    </a>
+                </h2>
 
                 <p>
-                    I'm a 2nd year Computer Science and Commerce student.
+                    Hey, I'm Chris. I'm a 2nd year Computer Science and Commerce student.
                     I’m currently one of the 2026 Human Resources Directors, alongside
                     my fellow bums, Tori and Emma. This year, I’m running for Vice
                     President of Internals for 2027.
@@ -416,6 +426,28 @@
         </div>
     </section>
 
+
+    <!-- Intro Video Lightbox -->
+    <div class="intro-video-lightbox" id="introVideoLightbox" aria-hidden="true">
+        <div class="intro-video-lightbox-backdrop"></div>
+
+        <div class="intro-video-lightbox-content" role="dialog" aria-modal="true"
+             aria-label="Intro video">
+            <button class="intro-video-lightbox-close" type="button"
+                    aria-label="Close intro video">&times;</button>
+
+            <video id="introVideo" controls playsinline preload="auto">
+                <source src="videos/open-1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <button class="intro-video-play-button" id="introVideoPlayButton"
+                    type="button" aria-label="Play intro video">
+                ▶ Click to Play
+            </button>
+        </div>
+    </div>
+
     <!-- Events + Initiatives Individual Carousels -->
     <div class="event-lightbox" id="eventLightbox" aria-hidden="true">
         <div class="event-lightbox-backdrop"></div>
@@ -707,6 +739,61 @@
         eventLightboxClose.addEventListener('click', closeEventLightbox);
         eventLightboxBackdrop.addEventListener('click', closeEventLightbox);
 
+
+        // Intro video lightbox
+        const introVideoLightbox = document.getElementById('introVideoLightbox');
+        const introVideo = document.getElementById('introVideo');
+        const introVideoLink = document.getElementById('introVideoLink');
+        const introVideoClose = introVideoLightbox.querySelector('.intro-video-lightbox-close');
+        const introVideoBackdrop = introVideoLightbox.querySelector('.intro-video-lightbox-backdrop');
+        const introVideoPlayButton = document.getElementById('introVideoPlayButton');
+
+        introVideoPlayButton.addEventListener('click', () => {
+            introVideo.play();
+            introVideoPlayButton.classList.remove('visible');
+        });
+
+        function openIntroVideo() {
+            introVideoLightbox.classList.add('open');
+            introVideoLightbox.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('lightbox-open');
+
+            introVideo.currentTime = 0;
+
+            // Try to autoplay with sound.
+            const playPromise = introVideo.play();
+
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    // Autoplay with sound succeeded.
+                    introVideoPlayButton.classList.remove('visible');
+                }).catch(() => {
+                    // Browser blocked autoplay with sound.
+                    introVideoPlayButton.classList.add('visible');
+                });
+            }
+
+            introVideoClose.focus();
+        }
+
+        function closeIntroVideo() {
+            introVideo.pause();
+            introVideoLightbox.classList.remove('open');
+            introVideoLightbox.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('lightbox-open');
+        }
+
+        introVideoLink.addEventListener('click', (event) => {
+            event.preventDefault();
+            openIntroVideo();
+        });
+
+        introVideoClose.addEventListener('click', closeIntroVideo);
+        introVideoBackdrop.addEventListener('click', closeIntroVideo);
+
+        // Open automatically when the website loads.
+        window.addEventListener('load', openIntroVideo);
+
         // Memory image lightbox
         const lightbox = document.getElementById('memoryLightbox');
         const lightboxImage = document.getElementById('memoryLightboxImage');
@@ -741,6 +828,10 @@
         lightboxBackdrop.addEventListener('click', closeLightbox);
         document.addEventListener('keydown', (event) => {
             if (event.key !== 'Escape') return;
+
+            if (introVideoLightbox.classList.contains('open')) {
+                closeIntroVideo();
+            }
 
             if (eventLightbox.classList.contains('open')) {
                 closeEventLightbox();
