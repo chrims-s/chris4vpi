@@ -197,7 +197,7 @@
             <h2>Events + Initiatives</h2>
 
             <p>
-                Here are some events that HR have hosted over the past two years:
+                Here are some events that HR have hosted over the past two years (you can click on the images):
             </p>
 
             <div class="events-gallery" aria-label="Events and initiatives">
@@ -473,7 +473,7 @@
             <button class="event-lightbox-button next" type="button"
                     aria-label="Next photo">&#10095;</button>
 
-            <div class="event-lightbox-counter" id="eventLightboxCounter">1 / 5</div>
+            <div class="event-lightbox-dots" id="eventLightboxDots" aria-label="Photo navigation"></div>
         </div>
     </div>
 
@@ -534,7 +534,7 @@
         const eventLightboxBackdrop = eventLightbox.querySelector('.event-lightbox-backdrop');
         const eventPrevButton = eventLightbox.querySelector('.event-lightbox-button.prev');
         const eventNextButton = eventLightbox.querySelector('.event-lightbox-button.next');
-        const eventCounter = document.getElementById('eventLightboxCounter');
+        const eventDots = document.getElementById('eventLightboxDots');
 
         // Change these filenames to the images belonging to each event.
         // Each inner array represents ONE event's carousel.
@@ -681,8 +681,16 @@
             eventLightboxTrack.style.transform =
                 `translateX(-${eventCurrentIndex * 100}%)`;
 
-            eventCounter.textContent =
-                `${eventCurrentIndex + 1} / ${currentEventPhotos.length}`;
+            eventDots.innerHTML = currentEventPhotos.map((_, index) =>
+                `<button class="event-lightbox-dot${index === eventCurrentIndex ? ' active' : ''}" type="button" aria-label="Go to photo ${index + 1}" data-index="${index}"></button>`
+            ).join('');
+
+            eventDots.querySelectorAll('.event-lightbox-dot').forEach((dot) => {
+                dot.addEventListener('click', () => {
+                    eventCurrentIndex = Number(dot.dataset.index);
+                    updateEventLightbox();
+                });
+            });
 
             eventCaption.textContent = eventData[activeEventIndex].descriptions[eventCurrentIndex];
 
