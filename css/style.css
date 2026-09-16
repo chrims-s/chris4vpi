@@ -420,6 +420,24 @@ nav a.active {
     box-shadow: var(--soft-shadow);
 }
 
+.intro-photo-note {
+    position: absolute;
+    left: 18px;
+    bottom: -48px;
+    z-index: 4;
+    padding: 10px 15px 11px;
+    max-width: 230px;
+    color: var(--ink);
+    background: var(--butter);
+    border: 1px solid rgba(64,59,69,.12);
+    box-shadow: var(--soft-shadow);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 12px;
+    line-height: 1.35;
+    text-align: center;
+    transform: rotate(-2deg);
+}
+
 .intro-photo img {
     width: 100%;
     height: 100%;
@@ -818,6 +836,57 @@ body.lightbox-open {
     justify-content: center;
 }
 
+.event-lightbox-dots {
+    grid-column: 2;
+    grid-row: 3;
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin-top: 8px;
+}
+
+.event-lightbox-dot {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.event-lightbox-dot::after {
+    content: '';
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .38);
+    transition: transform .18s ease, background .18s ease, opacity .18s ease;
+}
+
+.event-lightbox-dot:hover::after,
+.event-lightbox-dot:focus-visible::after {
+    background: rgba(255, 255, 255, .7);
+    transform: translate(-50%, -50%) scale(1.25);
+}
+
+.event-lightbox-dot.active::after {
+    background: rgba(255, 255, 255, .95);
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+.event-lightbox-dot:focus-visible {
+    outline: none;
+}
+
 .event-lightbox-info {
     grid-column: 2;
     grid-row: 1;
@@ -852,32 +921,6 @@ body.lightbox-open {
     font-size: 13px;
     line-height: 1.55;
     color: rgba(255,255,255,.78);
-}
-
-.event-lightbox-dots {
-    grid-column: 2;
-    grid-row: 3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 14px;
-}
-
-.event-lightbox-dot {
-    width: 8px;
-    height: 8px;
-    padding: 0;
-    border: 1px solid rgba(255,255,255,.7);
-    border-radius: 50%;
-    background: transparent;
-    cursor: pointer;
-    transition: transform .2s ease, background .2s ease;
-}
-
-.event-lightbox-dot.active {
-    background: white;
-    transform: scale(1.25);
 }
 
 .event-lightbox-viewport {
