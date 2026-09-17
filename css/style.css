@@ -854,23 +854,88 @@ nav a.active {
     }
 }
 
-/* Keep stickers out of the text column on smaller screens. */
+/* =========================
+   Mobile sticker positioning
+   ========================= */
+
 @media (max-width: 900px) {
-    .sticker {
-        width: 78px;
-        z-index: 0;
+    /* IMPORTANT: the desktop .section uses overflow:hidden, which was clipping
+       stickers at the section edge and forcing them back over the text.
+       Let the decorative stickers hang into the gaps between sections. */
+    .section {
+        overflow: visible;
     }
 
-    .sticker-1 { top: -55px; right: -65px; }
-    .sticker-2 { top: auto; right: -65px; bottom: -40px; }
-    .sticker-3 { top: -55px; right: -65px; }
-    .sticker-4 { top: auto; right: -65px; bottom: 35px; }
-    .sticker-5 { bottom: -40px; left: -65px; }
-    .sticker-6 { top: -55px; right: -65px; }
-    .sticker-7 { bottom: -40px; right: -65px; }
-    .sticker-8 { top: -55px; right: -65px; }
-    .sticker-9 { bottom: -40px; left: -65px; }
+    .sticker {
+        z-index: 0;
+        pointer-events: none;
+        width: 68px;
+    }
 
+    /* Put the top stickers ABOVE the content, in the space between sections. */
+    .sticker-1 {
+        top: -78px;
+        right: -72px;
+        width: 68px;
+    }
+
+    .sticker-3 {
+        top: -82px;
+        right: -78px;
+        width: 72px;
+    }
+
+    .sticker-6 {
+        top: -78px;
+        right: -72px;
+        width: 68px;
+    }
+
+    .sticker-8 {
+        top: -82px;
+        right: -92px;
+        width: 58px;
+    }
+
+    /* Bottom/right stickers: push them into the outer margin. */
+    .sticker-2 {
+        top: auto;
+        right: -82px;
+        bottom: -48px;
+        width: 62px;
+    }
+
+    .sticker-4 {
+        top: auto;
+        right: -86px;
+        bottom: 28px;
+        width: 62px;
+    }
+
+    .sticker-7 {
+        top: auto;
+        right: -72px;
+        bottom: -58px;
+        width: 66px;
+    }
+
+    /* Left sticker: deliberately move it outside the text column. */
+    .sticker-5 {
+        top: auto;
+        left: -92px;
+        bottom: -52px;
+        width: 64px;
+    }
+
+    /* Sticker 9 was already behaving correctly, so keep the same idea. */
+    .sticker-9 {
+        top: auto;
+        left: -92px;
+        bottom: -48px;
+        width: 64px;
+    }
+
+    /* Text stays above decorative artwork if their boxes ever touch. */
     .sticker-zone > h2,
     .sticker-zone > p,
     .sticker-zone > ul {
@@ -881,36 +946,61 @@ nav a.active {
 
 @media (max-width: 520px) {
     .sticker {
-        width: 62px;
-        z-index: 0;
+        width: 58px;
     }
 
-    .sticker-1,
-    .sticker-3,
-    .sticker-6,
-    .sticker-8 {
-        top: -48px;
-        right: -48px;
+    .sticker-1 {
+        top: -70px;
+        right: -62px;
+        width: 58px;
     }
 
-    .sticker-2,
-    .sticker-4,
+    .sticker-2 {
+        right: -72px;
+        bottom: -42px;
+        width: 54px;
+    }
+
+    .sticker-3 {
+        top: -74px;
+        right: -68px;
+        width: 60px;
+    }
+
+    .sticker-4 {
+        right: -76px;
+        bottom: 22px;
+        width: 54px;
+    }
+
+    .sticker-5 {
+        left: -78px;
+        bottom: -46px;
+        width: 56px;
+    }
+
+    .sticker-6 {
+        top: -70px;
+        right: -62px;
+        width: 58px;
+    }
+
     .sticker-7 {
-        bottom: -35px;
-        right: -48px;
+        right: -62px;
+        bottom: -50px;
+        width: 56px;
     }
 
-    .sticker-5,
+    .sticker-8 {
+        top: -74px;
+        right: -78px;
+        width: 50px;
+    }
+
     .sticker-9 {
-        bottom: -35px;
-        left: -48px;
-    }
-
-    .sticker-zone > h2,
-    .sticker-zone > p,
-    .sticker-zone > ul {
-        position: relative;
-        z-index: 10;
+        left: -78px;
+        bottom: -42px;
+        width: 56px;
     }
 }
 
