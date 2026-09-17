@@ -31,6 +31,9 @@
 
 html {
     scroll-behavior: smooth;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
 }
 
 body {
@@ -38,7 +41,9 @@ body {
     background: var(--paper);
     color: var(--ink);
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
     line-height: 1.6;
 }
 
@@ -108,6 +113,7 @@ body::before {
 
 nav {
     display: flex;
+    min-width: 0;
     align-items: center;
     justify-content: flex-end;
     gap: clamp(7px, 1.4vw, 18px);
@@ -606,6 +612,9 @@ nav a.active {
 
 .carousel {
     position: relative;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     display: flex;
     align-items: center;
     gap: 18px;
@@ -614,7 +623,9 @@ nav a.active {
 
 .carousel-viewport {
     overflow: hidden;
-    width: 100%;
+    flex: 1 1 auto;
+    min-width: 0;
+    width: auto;
     padding: 18px 8px 30px;
 }
 
@@ -649,6 +660,7 @@ nav a.active {
 
 .carousel-button {
     flex: 0 0 43px;
+    min-width: 43px;
     width: 43px;
     height: 43px;
     border: 1px solid rgba(64,59,69,.18);
@@ -854,153 +866,202 @@ nav a.active {
     }
 }
 
-/* =========================
-   Mobile sticker positioning
-   ========================= */
 
-@media (max-width: 900px) {
-    /* IMPORTANT: the desktop .section uses overflow:hidden, which was clipping
-       stickers at the section edge and forcing them back over the text.
-       Let the decorative stickers hang into the gaps between sections. */
-    .section {
+
+/* =========================================================
+   MOBILE STICKERS
+   Single source of truth for sticker positioning on mobile.
+   ========================================================= */
+/* =========================================================
+   TABLET STICKERS
+   Keep stickers visible at tablet widths without covering copy.
+   ========================================================= */
+@media screen and (min-width: 901px) and (max-width: 1100px) {
+    /* Let decorations cross section boundaries instead of being clipped. */
+    .section:has(.sticker-zone) {
         overflow: visible;
     }
 
-    .sticker {
-        z-index: 0;
+    .sticker-zone .sticker {
+        z-index: 1;
         pointer-events: none;
-        width: 68px;
     }
 
-    /* Put the top stickers ABOVE the content, in the space between sections. */
-    .sticker-1 {
-        top: -78px;
-        right: -72px;
-        width: 68px;
-    }
-
-    .sticker-3 {
-        top: -82px;
-        right: -78px;
-        width: 72px;
-    }
-
-    .sticker-6 {
-        top: -78px;
-        right: -72px;
-        width: 68px;
-    }
-
-    .sticker-8 {
-        top: -82px;
-        right: -92px;
-        width: 58px;
-    }
-
-    /* Bottom/right stickers: push them into the outer margin. */
-    .sticker-2 {
-        top: auto;
-        right: -82px;
-        bottom: -48px;
-        width: 62px;
-    }
-
-    .sticker-4 {
-        top: auto;
-        right: -86px;
-        bottom: 28px;
-        width: 62px;
-    }
-
-    .sticker-7 {
-        top: auto;
-        right: -72px;
-        bottom: -58px;
-        width: 66px;
-    }
-
-    /* Left sticker: deliberately move it outside the text column. */
-    .sticker-5 {
-        top: auto;
-        left: -92px;
-        bottom: -52px;
-        width: 64px;
-    }
-
-    /* Sticker 9 was already behaving correctly, so keep the same idea. */
-    .sticker-9 {
-        top: auto;
-        left: -92px;
-        bottom: -48px;
-        width: 64px;
-    }
-
-    /* Text stays above decorative artwork if their boxes ever touch. */
     .sticker-zone > h2,
     .sticker-zone > p,
     .sticker-zone > ul {
         position: relative;
         z-index: 10;
+        max-width: calc(100% - 125px);
+    }
+
+    /* Move the right-side artwork into the outer gutter. */
+    .sticker-zone .sticker-1,
+    .sticker-zone .sticker-2,
+    .sticker-zone .sticker-3,
+    .sticker-zone .sticker-4,
+    .sticker-zone .sticker-6,
+    .sticker-zone .sticker-7,
+    .sticker-zone .sticker-8 {
+        right: -72px;
+    }
+
+    .sticker-zone .sticker-1,
+    .sticker-zone .sticker-2,
+    .sticker-zone .sticker-6,
+    .sticker-zone .sticker-7 {
+        width: 125px;
+    }
+
+    .sticker-zone .sticker-3,
+    .sticker-zone .sticker-4 {
+        width: 165px;
+    }
+
+    .sticker-zone .sticker-8 {
+        width: 145px;
+    }
+
+    /* Keep the left-side artwork in the outer gutter as well. */
+    .sticker-zone .sticker-5,
+    .sticker-zone .sticker-9 {
+        left: -72px;
+        width: 145px;
     }
 }
 
-@media (max-width: 520px) {
-    .sticker {
-        width: 58px;
+@media screen and (max-width: 900px) {
+    .section {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
     }
 
-    .sticker-1 {
-        top: -70px;
-        right: -62px;
-        width: 58px;
+    .section:has(.sticker-zone) {
+        overflow: visible;
     }
 
-    .sticker-2 {
-        right: -72px;
-        bottom: -42px;
+    .section-content.sticker-zone {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        position: relative;
+        padding-right: clamp(58px, 12vw, 86px);
+    }
+
+    .sticker-zone .sticker {
+        position: absolute;
+        z-index: 0;
+        pointer-events: none;
+        transform-origin: center;
+    }
+
+    /* Keep text above decorative artwork. */
+    .sticker-zone > h2,
+    .sticker-zone > p,
+    .sticker-zone > ul {
+        position: relative;
+        z-index: 10;
+        max-width: 100%;
+    }
+
+    /* Top-right stickers. */
+    .sticker-zone .sticker-1 {
+        top: -115px;
+        right: 0;
+        left: auto;
+        width: clamp(62px, 12vw, 86px);
+    }
+
+    .sticker-zone .sticker-3 {
+        top: -120px;
+        right: 0;
+        left: auto;
+        width: clamp(62px, 12vw, 86px);
+    }
+
+    .sticker-zone .sticker-6 {
+        top: -115px;
+        right: 0;
+        left: auto;
+        width: clamp(62px, 12vw, 86px);
+    }
+
+    .sticker-zone .sticker-8 {
+        top: -95px;
+        right: 0;
+        left: auto;
+        width: clamp(58px, 10vw, 74px);
+    }
+
+    /* Bottom-right stickers. */
+    .sticker-zone .sticker-2 {
+        top: auto;
+        right: 0;
+        left: auto;
+        bottom: -25px;
+        width: clamp(58px, 11vw, 78px);
+    }
+
+    .sticker-zone .sticker-4 {
+        top: auto;
+        right: 0;
+        left: auto;
+        bottom: 10px;
+        width: clamp(58px, 11vw, 78px);
+    }
+
+    .sticker-zone .sticker-7 {
+        top: auto;
+        right: 0;
+        left: auto;
+        bottom: -45px;
+        width: clamp(58px, 11vw, 78px);
+    }
+
+    /* Bottom-left stickers. */
+    .sticker-zone .sticker-5 {
+        top: auto;
+        left: -8px;
+        right: auto;
+        bottom: -35px;
+        width: clamp(62px, 12vw, 82px);
+    }
+
+    .sticker-zone .sticker-9 {
+        top: auto;
+        left: -8px;
+        right: auto;
+        bottom: -30px;
+        width: clamp(62px, 12vw, 82px);
+    }
+}
+
+@media screen and (max-width: 520px) {
+    /* Slightly smaller copy lane on narrow phones. */
+    .section-content.sticker-zone {
+        padding-right: 62px;
+    }
+
+    .sticker-zone .sticker-1,
+    .sticker-zone .sticker-3,
+    .sticker-zone .sticker-6 {
+        width: 62px;
+    }
+
+    .sticker-zone .sticker-2,
+    .sticker-zone .sticker-4,
+    .sticker-zone .sticker-7 {
+        width: 56px;
+    }
+
+    .sticker-zone .sticker-8 {
         width: 54px;
     }
 
-    .sticker-3 {
-        top: -74px;
-        right: -68px;
-        width: 60px;
-    }
-
-    .sticker-4 {
-        right: -76px;
-        bottom: 22px;
-        width: 54px;
-    }
-
-    .sticker-5 {
-        left: -78px;
-        bottom: -46px;
-        width: 56px;
-    }
-
-    .sticker-6 {
-        top: -70px;
-        right: -62px;
+    .sticker-zone .sticker-5,
+    .sticker-zone .sticker-9 {
         width: 58px;
-    }
-
-    .sticker-7 {
-        right: -62px;
-        bottom: -50px;
-        width: 56px;
-    }
-
-    .sticker-8 {
-        top: -74px;
-        right: -78px;
-        width: 50px;
-    }
-
-    .sticker-9 {
-        left: -78px;
-        bottom: -42px;
-        width: 56px;
     }
 }
 
@@ -1346,39 +1407,8 @@ body.lightbox-open {
     pointer-events: none;
 }
 
-/* =========================
-   Mobile
-   ========================= */
 
 @media (max-width: 900px) {
-    /* Keep stickers visually outside the copy on mobile. */
-    .sticker {
-        width: 72px;
-        z-index: 0;
-        pointer-events: none;
-    }
-
-    /* Right-side stickers: push them farther beyond the viewport edge. */
-    .sticker-1 { top: -52px; right: -58px; }
-    .sticker-2 { top: auto; right: -58px; bottom: -38px; }
-    .sticker-3 { top: -52px; right: -68px; }
-    .sticker-4 { top: auto; right: -58px; bottom: 45px; }
-    .sticker-6 { top: -52px; right: -58px; }
-    .sticker-7 { bottom: -38px; right: -58px; }
-    .sticker-8 { top: -52px; right: -58px; }
-
-    /* Left-side stickers: keep them outside the text column. */
-    .sticker-5 { bottom: -38px; left: -58px; }
-    .sticker-9 { bottom: -38px; left: -58px; }
-
-    /* Always paint mobile copy above decorative stickers. */
-    .sticker-zone > h2,
-    .sticker-zone > p,
-    .sticker-zone > ul {
-        position: relative;
-        z-index: 10;
-    }
-
     .header {
         padding: 9px 18px;
     }
@@ -1482,10 +1512,16 @@ body.lightbox-open {
     }
 
     .carousel {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
         gap: 8px;
     }
 
     .carousel-viewport {
+        flex: 1 1 auto;
+        min-width: 0;
+        width: auto;
         padding: 14px 5px 25px;
     }
 
@@ -1496,7 +1532,8 @@ body.lightbox-open {
     }
 
     .carousel-button {
-        flex-basis: 35px;
+        flex: 0 0 35px;
+        min-width: 35px;
         width: 35px;
         height: 35px;
         font-size: 14px;
@@ -1554,28 +1591,37 @@ body.lightbox-open {
 }
 
 @media (max-width: 520px) {
-    /* Final mobile sticker positioning: keep decorations away from copy. */
-    .sticker { width: 58px; }
 
-    /* Move 1, 3 and 6 upward into the space between sections. */
-    .sticker-1 { top: -82px; right: -48px; }
-    .sticker-3 { top: -82px; right: -58px; }
-    .sticker-6 { top: -82px; right: -48px; }
+    .carousel {
+        display: grid;
+        grid-template-columns: 34px minmax(0, 1fr) 34px;
+        align-items: center;
+        gap: 6px;
+    }
 
-    /* 2 and 4: farther right and slightly smaller. */
-    .sticker-2 { bottom: -24px; right: -58px; width: 50px; }
-    .sticker-4 { bottom: 20px; right: -58px; width: 50px; }
+    .carousel-button.prev {
+        grid-column: 1;
+    }
 
-    /* 5: farther left and lower. */
-    .sticker-5 { bottom: -34px; left: -62px; width: 52px; }
+    .carousel-button.next {
+        grid-column: 3;
+    }
 
-    /* 7: a little lower. */
-    .sticker-7 { bottom: -38px; right: -48px; }
+    .carousel-button {
+        flex: none;
+        width: 34px;
+        min-width: 34px;
+        max-width: 34px;
+        height: 34px;
+        padding: 0;
+        font-size: 13px;
+    }
 
-    /* 8: farther right and smaller. */
-    .sticker-8 { top: -42px; right: -62px; width: 50px; }
-
-    .sticker-9 { bottom: -24px; left: -48px; }
+    .carousel-viewport {
+        grid-column: 2;
+        max-width: none;
+        overflow: hidden;
+    }
 
     .header {
         min-height: 62px;
@@ -1641,6 +1687,27 @@ body.lightbox-open {
     }
 }
 
+
+
+@media (max-width: 390px) {
+    .section {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .carousel {
+        grid-template-columns: 32px minmax(0, 1fr) 32px;
+        gap: 5px;
+    }
+
+    .carousel-button {
+        width: 32px;
+        min-width: 32px;
+        max-width: 32px;
+        height: 32px;
+        font-size: 12px;
+    }
+}
 
 /* =========================================================
    SECTION-BY-SECTION COLLAGE PATTERNS
@@ -1837,123 +1904,5 @@ body.lightbox-open {
     }
 }
 
-/* =========================================================
-   FINAL MOBILE STICKER FIX
-   Stickers are parked OUTSIDE the text column.
-   They may peek in from the viewport edges, but their boxes
-   never sit on top of the copy.
-   ========================================================= */
 
-@media (max-width: 700px) {
-    /* The stickers need to be allowed to extend outside
-       the section; the viewport itself still clips horizontal overflow. */
-    .section {
-        overflow: visible;
-    }
 
-    .sticker-zone {
-        position: relative;
-        overflow: visible;
-    }
-
-    .sticker {
-        z-index: 0;
-        pointer-events: none;
-        width: 50px;
-    }
-
-    /* Text is always painted above decorative artwork. */
-    .sticker-zone > h2,
-    .sticker-zone > p,
-    .sticker-zone > ul {
-        position: relative;
-        z-index: 20;
-    }
-}
-
-@media (max-width: 520px) {
-    .sticker {
-        width: 50px;
-    }
-
-    /* 1 — high, outside the right edge, between sections */
-    .sticker-1 {
-        top: -115px;
-        left: calc(100% + 10px);
-        right: auto;
-        bottom: auto;
-        width: 50px;
-    }
-
-    /* 2 — right + down, outside the text column */
-    .sticker-2 {
-        top: auto;
-        left: calc(100% + 10px);
-        right: auto;
-        bottom: -58px;
-        width: 45px;
-    }
-
-    /* 3 — high, outside the right edge, between sections */
-    .sticker-3 {
-        top: -120px;
-        left: calc(100% + 10px);
-        right: auto;
-        bottom: auto;
-        width: 52px;
-    }
-
-    /* 4 — right + smaller */
-    .sticker-4 {
-        top: auto;
-        left: calc(100% + 10px);
-        right: auto;
-        bottom: 8px;
-        width: 46px;
-    }
-
-    /* 5 — left + down + smaller */
-    .sticker-5 {
-        top: auto;
-        right: calc(100% + 10px);
-        left: auto;
-        bottom: -60px;
-        width: 48px;
-    }
-
-    /* 6 — high, outside the right edge, between sections */
-    .sticker-6 {
-        top: -115px;
-        left: calc(100% + 10px);
-        right: auto;
-        bottom: auto;
-        width: 50px;
-    }
-
-    /* 7 — move down */
-    .sticker-7 {
-        top: auto;
-        left: calc(100% + 10px);
-        right: auto;
-        bottom: -65px;
-        width: 48px;
-    }
-
-    /* 8 — right + smaller + high */
-    .sticker-8 {
-        top: -115px;
-        left: calc(100% + 10px);
-        right: auto;
-        bottom: auto;
-        width: 45px;
-    }
-
-    /* 9 — keep the working left-side placement */
-    .sticker-9 {
-        top: auto;
-        right: calc(100% + 10px);
-        left: auto;
-        bottom: -55px;
-        width: 50px;
-    }
-}
