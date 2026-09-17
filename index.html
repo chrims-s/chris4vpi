@@ -3,6 +3,7 @@
 
 <head>
     <title>Chris 4 VPI!!!</title>
+    <link rel="icon" type="image/png" href="images/favicon-1.png">
 
     <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
@@ -376,6 +377,10 @@
 
             <h2>Memories</h2>
 
+            <p class="memories-intro">
+                Thank you so much to everyone who's been a part of my CSE journey thus far. You guys are the reason I love CSE. Below are some of my favourite memories!!
+            </p>
+
             <div class="carousel" aria-label="Memories photo carousel">
                 <button class="carousel-button prev" type="button" aria-label="Previous photos">&#10094;</button>
 
@@ -464,10 +469,10 @@
                 Your browser does not support the video tag.
             </video>
 
-            <button class="intro-video-play-button" id="introVideoPlayButton"
-                    type="button" aria-label="Play intro video">
-                ▶ Click to Play
-            </button>
+            <div class="intro-video-note">
+                Stole this intro from Meet the Directors 2026 (shoutout to Media!!)
+            </div>
+
         </div>
     </div>
 
@@ -778,12 +783,6 @@
         const introVideoLink = document.getElementById('introVideoLink');
         const introVideoClose = introVideoLightbox.querySelector('.intro-video-lightbox-close');
         const introVideoBackdrop = introVideoLightbox.querySelector('.intro-video-lightbox-backdrop');
-        const introVideoPlayButton = document.getElementById('introVideoPlayButton');
-
-        introVideoPlayButton.addEventListener('click', () => {
-            introVideo.play();
-            introVideoPlayButton.classList.remove('visible');
-        });
 
         function openIntroVideo() {
             introVideoLightbox.classList.add('open');
@@ -792,18 +791,8 @@
 
             introVideo.currentTime = 0;
 
-            // Try to autoplay with sound.
-            const playPromise = introVideo.play();
-
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    // Autoplay with sound succeeded.
-                    introVideoPlayButton.classList.remove('visible');
-                }).catch(() => {
-                    // Browser blocked autoplay with sound.
-                    introVideoPlayButton.classList.add('visible');
-                });
-            }
+            // Keep the video paused so the browser's native play button is shown.
+            introVideo.pause();
 
             introVideoClose.focus();
         }
