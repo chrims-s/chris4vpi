@@ -857,47 +857,60 @@ nav a.active {
 /* Keep stickers out of the text column on smaller screens. */
 @media (max-width: 900px) {
     .sticker {
-        width: 135px;
+        width: 78px;
+        z-index: 0;
     }
 
-    .sticker-1 { top: -38px; right: -10%; width: 155px; }
-    .sticker-2 { top: auto; right: -6%; bottom: -10px; width: 130px; }
-    .sticker-3 { top: 75px; width: 180px; right: -10%; width: 150px; }
-    .sticker-4 { top: auto; right: -6%; bottom: 70px; width: 135px; }
-    .sticker-5 { bottom: -30px; left: -150px; width: 130px; }
-    .sticker-6 { top: -38px; right: -10%; width: 155px; }
-    .sticker-7 { bottom: -10px; right: -6%; width: 130px; }
-    .sticker-8 { top: 75px; width: 175px; right: -10%; width: 155px; }
-    .sticker-9 { bottom: -30px; left: -150px; width: 130px; }
+    .sticker-1 { top: -55px; right: -65px; }
+    .sticker-2 { top: auto; right: -65px; bottom: -40px; }
+    .sticker-3 { top: -55px; right: -65px; }
+    .sticker-4 { top: auto; right: -65px; bottom: 35px; }
+    .sticker-5 { bottom: -40px; left: -65px; }
+    .sticker-6 { top: -55px; right: -65px; }
+    .sticker-7 { bottom: -40px; right: -65px; }
+    .sticker-8 { top: -55px; right: -65px; }
+    .sticker-9 { bottom: -40px; left: -65px; }
+
+    .sticker-zone > h2,
+    .sticker-zone > p,
+    .sticker-zone > ul {
+        position: relative;
+        z-index: 10;
+    }
 }
 
 @media (max-width: 520px) {
     .sticker {
-        width: 105px;
+        width: 62px;
+        z-index: 0;
     }
 
     .sticker-1,
     .sticker-3,
     .sticker-6,
     .sticker-8 {
-        top: -10px;
-        right: -7%;
-        width: 115px;
+        top: -48px;
+        right: -48px;
     }
 
     .sticker-2,
     .sticker-4,
-    .sticker-7,
-    .sticker-9 {
-        bottom: -5px;
-        right: -7%;
-        width: 105px;
+    .sticker-7 {
+        bottom: -35px;
+        right: -48px;
     }
 
-    .sticker-5 {
-        bottom: -5px;
-        left: -7%;
-        width: 105px;
+    .sticker-5,
+    .sticker-9 {
+        bottom: -35px;
+        left: -48px;
+    }
+
+    .sticker-zone > h2,
+    .sticker-zone > p,
+    .sticker-zone > ul {
+        position: relative;
+        z-index: 10;
     }
 }
 
@@ -1248,24 +1261,32 @@ body.lightbox-open {
    ========================= */
 
 @media (max-width: 900px) {
-    /* Keep stickers at the outer edges on mobile so they never cover copy. */
-    .sticker { width: 78px; z-index: 0; }
-    .sticker-1 { top: -48px; right: -42px; }
-    .sticker-2 { top: auto; right: -42px; bottom: -32px; }
-    .sticker-3 { top: -48px; right: -42px; }
-    .sticker-4 { top: auto; right: -42px; bottom: 55px; }
-    .sticker-5 { bottom: -32px; left: -42px; }
-    .sticker-6 { top: -48px; right: -42px; }
-    .sticker-7 { bottom: -32px; right: -42px; }
-    .sticker-8 { top: -48px; right: -42px; }
-    .sticker-9 { bottom: -32px; left: -42px; }
+    /* Keep stickers visually outside the copy on mobile. */
+    .sticker {
+        width: 72px;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    /* Right-side stickers: push them farther beyond the viewport edge. */
+    .sticker-1 { top: -52px; right: -58px; }
+    .sticker-2 { top: auto; right: -58px; bottom: -38px; }
+    .sticker-3 { top: -52px; right: -68px; }
+    .sticker-4 { top: auto; right: -58px; bottom: 45px; }
+    .sticker-6 { top: -52px; right: -58px; }
+    .sticker-7 { bottom: -38px; right: -58px; }
+    .sticker-8 { top: -52px; right: -58px; }
+
+    /* Left-side stickers: keep them outside the text column. */
+    .sticker-5 { bottom: -38px; left: -58px; }
+    .sticker-9 { bottom: -38px; left: -58px; }
 
     /* Always paint mobile copy above decorative stickers. */
     .sticker-zone > h2,
     .sticker-zone > p,
     .sticker-zone > ul {
         position: relative;
-        z-index: 1;
+        z-index: 10;
     }
 
     .header {
@@ -1443,10 +1464,10 @@ body.lightbox-open {
 }
 
 @media (max-width: 520px) {
-    .sticker { width: 62px; }
-    .sticker-1, .sticker-3, .sticker-6, .sticker-8 { top: -42px; right: -34px; }
-    .sticker-2, .sticker-4, .sticker-7 { bottom: -28px; right: -34px; }
-    .sticker-5, .sticker-9 { bottom: -28px; left: -34px; }
+    .sticker { width: 58px; }
+    .sticker-1, .sticker-3, .sticker-6, .sticker-8 { top: -40px; right: -48px; }
+    .sticker-2, .sticker-4, .sticker-7 { bottom: -24px; right: -48px; }
+    .sticker-5, .sticker-9 { bottom: -24px; left: -48px; }
 
     .header {
         min-height: 62px;
