@@ -1836,3 +1836,124 @@ body.lightbox-open {
         font-size: 16px !important;
     }
 }
+
+/* =========================================================
+   FINAL MOBILE STICKER FIX
+   Stickers are parked OUTSIDE the text column.
+   They may peek in from the viewport edges, but their boxes
+   never sit on top of the copy.
+   ========================================================= */
+
+@media (max-width: 700px) {
+    /* The stickers need to be allowed to extend outside
+       the section; the viewport itself still clips horizontal overflow. */
+    .section {
+        overflow: visible;
+    }
+
+    .sticker-zone {
+        position: relative;
+        overflow: visible;
+    }
+
+    .sticker {
+        z-index: 0;
+        pointer-events: none;
+        width: 50px;
+    }
+
+    /* Text is always painted above decorative artwork. */
+    .sticker-zone > h2,
+    .sticker-zone > p,
+    .sticker-zone > ul {
+        position: relative;
+        z-index: 20;
+    }
+}
+
+@media (max-width: 520px) {
+    .sticker {
+        width: 50px;
+    }
+
+    /* 1 — high, outside the right edge, between sections */
+    .sticker-1 {
+        top: -115px;
+        left: calc(100% + 10px);
+        right: auto;
+        bottom: auto;
+        width: 50px;
+    }
+
+    /* 2 — right + down, outside the text column */
+    .sticker-2 {
+        top: auto;
+        left: calc(100% + 10px);
+        right: auto;
+        bottom: -58px;
+        width: 45px;
+    }
+
+    /* 3 — high, outside the right edge, between sections */
+    .sticker-3 {
+        top: -120px;
+        left: calc(100% + 10px);
+        right: auto;
+        bottom: auto;
+        width: 52px;
+    }
+
+    /* 4 — right + smaller */
+    .sticker-4 {
+        top: auto;
+        left: calc(100% + 10px);
+        right: auto;
+        bottom: 8px;
+        width: 46px;
+    }
+
+    /* 5 — left + down + smaller */
+    .sticker-5 {
+        top: auto;
+        right: calc(100% + 10px);
+        left: auto;
+        bottom: -60px;
+        width: 48px;
+    }
+
+    /* 6 — high, outside the right edge, between sections */
+    .sticker-6 {
+        top: -115px;
+        left: calc(100% + 10px);
+        right: auto;
+        bottom: auto;
+        width: 50px;
+    }
+
+    /* 7 — move down */
+    .sticker-7 {
+        top: auto;
+        left: calc(100% + 10px);
+        right: auto;
+        bottom: -65px;
+        width: 48px;
+    }
+
+    /* 8 — right + smaller + high */
+    .sticker-8 {
+        top: -115px;
+        left: calc(100% + 10px);
+        right: auto;
+        bottom: auto;
+        width: 45px;
+    }
+
+    /* 9 — keep the working left-side placement */
+    .sticker-9 {
+        top: auto;
+        right: calc(100% + 10px);
+        left: auto;
+        bottom: -55px;
+        width: 50px;
+    }
+}
