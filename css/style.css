@@ -1,7 +1,4 @@
-
-/* =========================================================
-   CHRIS 4 VPI — PASTEL COLLAGE / SCRAPBOOK THEME
-   ========================================================= */
+/* CHRIS 4 VPI — PASTEL COLLAGE / SCRAPBOOK THEME */
 
 :root {
     --paper: #fffaf1;
@@ -21,9 +18,7 @@
     --border: rgba(64,59,69,.16);
 }
 
-/* =========================
-   Base
-   ========================= */
+/* BASE */
 
 * {
     box-sizing: border-box;
@@ -47,7 +42,6 @@ body {
     line-height: 1.6;
 }
 
-/* subtle paper grain made only with CSS */
 body::before {
     content: "";
     position: fixed;
@@ -62,9 +56,7 @@ body::before {
     background-size: 17px 17px, 23px 23px;
 }
 
-/* =========================
-   Navigation
-   ========================= */
+/* NAVIGATION */
 
 .header {
     position: sticky;
@@ -91,17 +83,6 @@ body::before {
     align-items: center;
     justify-content: center;
     transform: none;
-}
-
-.logo::after {
-    content: none;
-    position: absolute;
-    width: 53px;
-    height: 53px;
-    border: 1px solid rgba(64,59,69,.15);
-    border-radius: 50%;
-    transform: rotate(7deg);
-    pointer-events: none;
 }
 
 .logo img {
@@ -162,9 +143,7 @@ nav a.active {
     box-shadow: 0 2px 0 rgba(64,59,69,.10);
 }
 
-/* =========================
-   Section framework
-   ========================= */
+/* SECTION FRAMEWORK */
 
 .section {
     position: relative;
@@ -178,7 +157,6 @@ nav a.active {
     scroll-margin-top: 78px;
 }
 
-/* scrapbook colour blocks */
 .blue {
     background:
         radial-gradient(circle at 92% 12%, rgba(255,255,255,.68) 0 90px, transparent 91px),
@@ -197,9 +175,7 @@ nav a.active {
         linear-gradient(135deg, rgba(244,216,216,.95), rgba(247,233,224,.92));
 }
 
-/* decorative taped/paper scraps */
-.section::before,
-.section::after {
+.section::before {
     content: "";
     position: absolute;
     z-index: -1;
@@ -216,13 +192,7 @@ nav a.active {
     transform: rotate(14deg);
 }
 
-.section::after {
-    content: none;
-}
-
-/* =========================
-   Sidebar
-   ========================= */
+/* SIDEBAR */
 
 .section-sidebar {
     grid-column: 1;
@@ -276,9 +246,7 @@ nav a.active {
     color: rgba(64,59,69,.65);
 }
 
-/* =========================
-   Content / typography
-   ========================= */
+/* CONTENT & TYPOGRAPHY */
 
 .section-content {
     grid-column: 2;
@@ -324,7 +292,6 @@ nav a.active {
     margin: 0 0 23px;
 }
 
-/* Give text a handmade editorial rhythm */
 .section-content > p {
     padding: 4px 3px;
 }
@@ -337,9 +304,7 @@ nav a.active {
     margin-left: clamp(0px, .8vw, 10px);
 }
 
-/* =========================
-   Intro
-   ========================= */
+/* INTRO */
 
 .intro-content {
     display: grid;
@@ -445,7 +410,6 @@ nav a.active {
     display: block;
 }
 
-/* Intro video link feels like a handwritten label */
 .intro-video-link {
     display: inline-flex;
     align-items: center;
@@ -468,9 +432,7 @@ nav a.active {
     flex-shrink: 0;
 }
 
-/* =========================
-   Events + Initiatives
-   ========================= */
+/* EVENTS & INITIATIVES */
 
 #events {
     background:
@@ -530,11 +492,6 @@ nav a.active {
 .event-card:nth-child(5) { grid-column: 1; grid-row: 3; transform: rotate(1.1deg); }
 .event-card:nth-child(6) { grid-column: 2; grid-row: 3; transform: rotate(-1.1deg); }
 
-/* Keep every photo self-contained — no tape or overlapping edges. */
-.event-card::before {
-    content: none;
-}
-
 .event-card:hover,
 .event-card:focus-visible {
     z-index: 10;
@@ -542,7 +499,6 @@ nav a.active {
     box-shadow: 7px 11px 0 rgba(77,66,72,.10), 0 18px 32px rgba(77,66,72,.14);
 }
 
-/* Show the complete source artwork inside each scrapbook frame. */
 .events-gallery img {
     flex: 0 0 auto;
     min-width: 0;
@@ -555,9 +511,7 @@ nav a.active {
     border: 1px solid rgba(64,59,69,.11);
 }
 
-/* =========================
-   Visions — paper notes
-   ========================= */
+/* VISIONS */
 
 .section-content ul {
     list-style: none;
@@ -596,9 +550,7 @@ nav a.active {
     transform: translateY(-4px) rotate(0deg);
 }
 
-/* =========================
-   Memories intro
-   ========================= */
+/* MEMORIES INTRO */
 
 .memories-intro {
     max-width: 760px !important;
@@ -615,9 +567,7 @@ nav a.active {
     transform: rotate(-.5deg);
 }
 
-/* =========================
-   Memories
-   ========================= */
+/* MEMORIES */
 
 .carousel {
     position: relative;
@@ -694,9 +644,7 @@ nav a.active {
     cursor: default;
 }
 
-/* =========================
-   Contact
-   ========================= */
+/* CONTACT */
 
 .contact-links {
     display: flex;
@@ -758,12 +706,16 @@ nav a.active {
     transform: rotate(-.7deg);
 }
 
-/* =========================
-   Collage stickers
-   ========================= */
+/* COLLAGE STICKERS */
 
 .sticker-zone {
     position: relative;
+}
+
+/* Allow sticker artwork to cross section boundaries. */
+.section:has(.sticker-zone) {
+    overflow: visible;
+    z-index: 2;
 }
 
 .sticker {
@@ -792,7 +744,6 @@ nav a.active {
         drop-shadow(5px 7px 7px rgba(64,59,69,.16));
 }
 
-/* Large, collage-style placement around the outer edges. */
 .sticker-1 {
     top: -65px;
     right: -8%;
@@ -825,7 +776,7 @@ nav a.active {
 }
 
 .sticker-5 {
-    /* Position from the outer left margin, not inside the text column. */
+    
     bottom: -45px;
     left: clamp(-300px, -20vw, -180px);
     width: clamp(230px, 25vw, 340px);
@@ -858,12 +809,28 @@ nav a.active {
 }
 
 .sticker-9 {
-    /* Position from the outer left margin, not inside the text column. */
+    
     bottom: -45px;
     left: clamp(-300px, -20vw, -180px);
     width: clamp(180px, 19vw, 265px);
     transform: rotate(8deg);
     animation-delay: -.5s;
+}
+
+.sticker-10 {
+    bottom: 5px;
+    right: -7%;
+    width: clamp(285px, 31vw, 420px);
+    transform: rotate(-6deg);
+    animation-delay: -1.1s;
+}
+
+.sticker-11 {
+    top: 105px;
+    right: -8%;
+    width: clamp(265px, 29vw, 395px);
+    transform: rotate(7deg);
+    animation-delay: -2.7s;
 }
 
 @keyframes sticker-float {
@@ -875,97 +842,114 @@ nav a.active {
     }
 }
 
+/* RESPONSIVE STICKERS */
 
-
-/* =========================================================
-   MOBILE STICKERS
-   Single source of truth for sticker positioning on mobile.
-   ========================================================= */
-/* =========================================================
-   TABLET STICKERS
-   Keep stickers visible at tablet widths without covering copy.
-   ========================================================= */
 @media screen and (min-width: 901px) and (max-width: 1100px) {
-    /* Let decorations cross section boundaries instead of being clipped. */
-    .section:has(.sticker-zone) {
-        overflow: visible;
-    }
-
-    .sticker-zone .sticker {
-        z-index: 1;
-        pointer-events: none;
-    }
-
+    /* Keep a clear right-hand gutter between the stickers and the copy. */
     .sticker-zone > h2,
     .sticker-zone > p,
     .sticker-zone > ul {
         position: relative;
         z-index: 10;
-        max-width: calc(100% - 125px);
+        max-width: calc(100% - 240px);
     }
 
-    /* Move the right-side artwork into the outer gutter. */
-    .sticker-zone .sticker-1,
-    .sticker-zone .sticker-2,
-    .sticker-zone .sticker-3,
-    .sticker-zone .sticker-4,
+    /* About Me sticker placement. */
+    #about .sticker-1 {
+        top: 175px;
+        right: 0;
+        width: 175px;
+    }
+
+    #about .sticker-2 {
+        top: 485px;
+        right: 0;
+        bottom: auto;
+        width: 175px;
+    }
+
+    /* Experience sticker placement. */
+    #experience .sticker-3 {
+        top: 280px;
+        right: 0;
+        width: 215px;
+    }
+
+    #experience .sticker-4 {
+        top: 665px;
+        right: 0;
+        width: 215px;
+    }
+
+    /* Move sticker 5 down/left so it stays clear of the text box. */
+    #experience .sticker-5 {
+        top: auto;
+        bottom: -55px;
+        left: -165px;
+        width: 180px;
+    }
+
+    /* Keep the other right-side stickers in the outer gutter. */
     .sticker-zone .sticker-6,
     .sticker-zone .sticker-7,
-    .sticker-zone .sticker-8 {
-        right: -72px;
+    .sticker-zone .sticker-8,
+    .sticker-zone .sticker-10,
+    .sticker-zone .sticker-11 {
+        right: 0;
     }
 
-    .sticker-zone .sticker-1,
-    .sticker-zone .sticker-2,
-    .sticker-zone .sticker-6,
-    .sticker-zone .sticker-7 {
-        width: 125px;
+    #why-vpi .sticker-6,
+    #why-vpi .sticker-7 {
+        width: 170px;
     }
 
-    .sticker-zone .sticker-3,
-    .sticker-zone .sticker-4 {
-        width: 165px;
+    /* Sticker 8 slightly left/up. */
+    #visions .sticker-8 {
+        right: 0;
+        top: 55px;
+        width: 180px;
     }
 
-    .sticker-zone .sticker-8 {
-        width: 145px;
+    /* Move sticker 9 down/left so it stays clear of the text box. */
+    #visions .sticker-9 {
+        top: auto;
+        bottom: -55px;
+        left: -165px;
+        width: 180px;
     }
 
-    /* Keep the left-side artwork in the outer gutter as well. */
-    .sticker-zone .sticker-5,
-    .sticker-zone .sticker-9 {
-        left: -72px;
-        width: 145px;
+    /* Slightly larger sticker 10 on tablet only. */
+    #visions .sticker-10 {
+        right: 0;
+        bottom: 35px;
+        width: 245px;
+    }
+
+    #contact .sticker-11 {
+        width: 215px;
     }
 }
 
 @media screen and (max-width: 900px) {
+    /* Keep the About section above the following section so sticker-2 can
+       extend past the section boundary without being covered by the next section. */
+    #about {
+        z-index: 5;
+    }
+
     .section {
         width: 100%;
         max-width: 100%;
         overflow: hidden;
     }
 
-    .section:has(.sticker-zone) {
-        overflow: visible;
-    }
-
     .section-content.sticker-zone {
         width: 100%;
         max-width: 100%;
-        box-sizing: border-box;
-        position: relative;
         padding-right: clamp(58px, 12vw, 86px);
     }
 
-    .sticker-zone .sticker {
-        position: absolute;
-        z-index: 0;
-        pointer-events: none;
-        transform-origin: center;
-    }
-
-    /* Keep text above decorative artwork. */
+    /* Keep content above decorative artwork. */
     .sticker-zone > h2,
     .sticker-zone > p,
     .sticker-zone > ul {
@@ -974,109 +958,46 @@ nav a.active {
         max-width: 100%;
     }
 
+    /* Shared right-edge alignment. */
+    .sticker-zone .sticker-1,
+    .sticker-zone .sticker-2,
+    .sticker-zone .sticker-3,
+    .sticker-zone .sticker-4,
+    .sticker-zone .sticker-6,
+    .sticker-zone .sticker-7,
+    .sticker-zone .sticker-8,
+    .sticker-zone .sticker-10,
+    .sticker-zone .sticker-11 {
+        right: 0;
+        left: auto;
+    }
+
     /* Top-right stickers. */
-    .sticker-zone .sticker-1 {
-        top: -115px;
-        right: 0;
-        left: auto;
-        width: clamp(62px, 12vw, 86px);
-    }
-
-    .sticker-zone .sticker-3 {
-        top: -120px;
-        right: 0;
-        left: auto;
-        width: clamp(62px, 12vw, 86px);
-    }
-
-    .sticker-zone .sticker-6 {
-        top: -115px;
-        right: 0;
-        left: auto;
-        width: clamp(62px, 12vw, 86px);
-    }
-
-    .sticker-zone .sticker-8 {
-        top: -95px;
-        right: 0;
-        left: auto;
-        width: clamp(58px, 10vw, 74px);
-    }
+    .sticker-zone .sticker-1 { top: -115px; width: clamp(62px, 12vw, 86px); }
+    .sticker-zone .sticker-3 { top: -55px; width: clamp(62px, 12vw, 86px); }
+    .sticker-zone .sticker-6 { top: -115px; width: clamp(62px, 12vw, 86px); }
+    .sticker-zone .sticker-8 { top: -95px; width: clamp(58px, 10vw, 74px); }
+    .sticker-zone .sticker-11 { top: 25px; width: clamp(68px, 13vw, 86px); }
 
     /* Bottom-right stickers. */
-    .sticker-zone .sticker-2 {
-        top: auto;
-        right: 0;
-        left: auto;
-        bottom: -25px;
-        width: clamp(58px, 11vw, 78px);
-    }
-
-    .sticker-zone .sticker-4 {
-        top: auto;
-        right: 0;
-        left: auto;
-        bottom: 10px;
-        width: clamp(58px, 11vw, 78px);
-    }
-
-    .sticker-zone .sticker-7 {
-        top: auto;
-        right: 0;
-        left: auto;
-        bottom: -45px;
-        width: clamp(58px, 11vw, 78px);
-    }
+    .sticker-zone .sticker-2 { top: auto; bottom: -80px; width: clamp(58px, 11vw, 78px); }
+    .sticker-zone .sticker-4 { top: auto; bottom: -45px; width: clamp(58px, 11vw, 78px); }
+    .sticker-zone .sticker-7 { top: auto; bottom: -45px; width: clamp(58px, 11vw, 78px); }
+    .sticker-zone .sticker-10 { top: auto; bottom: -15px; width: clamp(68px, 13vw, 86px); }
 
     /* Bottom-left stickers. */
-    .sticker-zone .sticker-5 {
-        top: auto;
-        left: -8px;
-        right: auto;
-        bottom: -35px;
-        width: clamp(62px, 12vw, 82px);
-    }
-
-    .sticker-zone .sticker-9 {
-        top: auto;
-        left: -8px;
-        right: auto;
-        bottom: -30px;
-        width: clamp(62px, 12vw, 82px);
-    }
-}
-
-@media screen and (max-width: 520px) {
-    /* Slightly smaller copy lane on narrow phones. */
-    .section-content.sticker-zone {
-        padding-right: 62px;
-    }
-
-    .sticker-zone .sticker-1,
-    .sticker-zone .sticker-3,
-    .sticker-zone .sticker-6 {
-        width: 62px;
-    }
-
-    .sticker-zone .sticker-2,
-    .sticker-zone .sticker-4,
-    .sticker-zone .sticker-7 {
-        width: 56px;
-    }
-
-    .sticker-zone .sticker-8 {
-        width: 54px;
-    }
-
     .sticker-zone .sticker-5,
     .sticker-zone .sticker-9 {
-        width: 58px;
+        top: auto;
+        left: -8px;
+        right: auto;
     }
+
+    .sticker-zone .sticker-5 { bottom: -80px; width: clamp(62px, 12vw, 82px); }
+    .sticker-zone .sticker-9 { bottom: -30px; width: clamp(62px, 12vw, 82px); }
 }
 
-/* =========================
-   Lightboxes
-   ========================= */
+/* Lightboxes */
 
 body.lightbox-open {
     overflow: hidden;
@@ -1357,7 +1278,6 @@ body.lightbox-open {
     display: block;
 }
 
-
 /* Intro video */
 .intro-video-lightbox-content {
     position: relative;
@@ -1410,7 +1330,6 @@ body.lightbox-open {
     transform: translateX(-50%) rotate(2deg);
     pointer-events: none;
 }
-
 
 @media (max-width: 900px) {
     .header {
@@ -1571,7 +1490,7 @@ body.lightbox-open {
         transform: rotate(-1deg);
     }
 
-    /* no tape on event info */
+    
 
     .event-lightbox-title {
         font-size: 21px;
@@ -1642,10 +1561,6 @@ body.lightbox-open {
         height: 38px;
     }
 
-    .logo::after {
-        display: none;
-    }
-
     nav {
         justify-content: flex-start;
     }
@@ -1653,11 +1568,6 @@ body.lightbox-open {
     .section {
         min-height: 0;
         padding: 54px 21px 70px;
-    }
-
-   .section::after {
-        left: 55%;
-        width: 75px;
     }
 
     .section-content h2::after {
@@ -1680,18 +1590,10 @@ body.lightbox-open {
         padding: 6px;
     }
 
-    .event-card::before {
-        width: 48px;
-        height: 18px;
-        top: -9px;
-    }
-
     .contact-link {
         min-width: 0;
     }
 }
-
-
 
 @media (max-width: 390px) {
     .section {
@@ -1713,9 +1615,7 @@ body.lightbox-open {
     }
 }
 
-/* =========================================================
-   SECTION-BY-SECTION COLLAGE PATTERNS
-   ========================================================= */
+/* SECTION PATTERNS */
 .section.pattern-dots,.section.pattern-grid,.section.pattern-scribbles,.section.pattern-confetti,.section.pattern-crosses,.section.pattern-checks,.section.pattern-film,.section.pattern-stars{background-repeat:repeat,no-repeat,no-repeat,no-repeat;}
 #intro.pattern-dots{background-image:radial-gradient(circle,rgba(64,59,69,.12) 1px,transparent 1.4px),radial-gradient(circle,rgba(255,255,255,.72) 1px,transparent 1.5px),radial-gradient(circle at 88% 18%,rgba(245,231,183,.55) 0 72px,transparent 73px),linear-gradient(135deg,rgba(219,234,240,.95),rgba(234,243,246,.92));background-size:31px 31px,47px 47px,auto,auto;background-position:7px 4px,18px 21px,0 0,0 0;}
 #about.pattern-grid{background-image:linear-gradient(rgba(64,59,69,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(64,59,69,.055) 1px,transparent 1px),radial-gradient(circle at 82% 20%,rgba(244,216,216,.38) 0 78px,transparent 79px),linear-gradient(135deg,rgba(223,232,215,.95),rgba(238,242,232,.92));background-size:42px 42px,42px 42px,auto,auto;}
@@ -1728,10 +1628,7 @@ body.lightbox-open {
 #intro.pattern-dots::before{border-style:dashed;}#about.pattern-grid::before{transform:rotate(-9deg);}#experience.pattern-scribbles::before{transform:rotate(7deg);}#events.pattern-confetti::before{transform:rotate(-5deg);}#why-vpi.pattern-crosses::before{transform:rotate(11deg);}#visions.pattern-checks::before{transform:rotate(-7deg);}#memories.pattern-film::before{transform:rotate(5deg);}#contact.pattern-stars::before{transform:rotate(-12deg);}
 @media(max-width:700px){#intro.pattern-dots,#about.pattern-grid,#why-vpi.pattern-crosses,#contact.pattern-stars{background-size:48px 48px,64px 64px,auto,auto;}#visions.pattern-checks{background-size:26px 26px,26px 26px,auto,auto;}#experience.pattern-scribbles{background-size:140px 140px,auto,auto;}}
 
-
-/* =========================================================
-   TYPOGRAPHIC COLLAGE — small accents, not visual overload
-   ========================================================= */
+/* TYPOGRAPHIC COLLAGE */
 
 .text-pop {
     font-weight: 800;
@@ -1908,10 +1805,6 @@ body.lightbox-open {
     }
 }
 
-
-
-
-/* Mobile: keep the scrapbook frames consistent while showing the full image. */
 @media (max-width: 520px) {
     #events .events-gallery {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1950,4 +1843,77 @@ body.lightbox-open {
     #events .event-card {
         padding: 5px;
     }
+}
+
+/* =========================================================
+   PHONE STICKERS — 70% LARGER
+   Applies only below 901px.
+   ========================================================= */
+@media screen and (max-width: 900px) {
+    .sticker-zone .sticker-1,
+    .sticker-zone .sticker-3,
+    .sticker-zone .sticker-6 {
+        width: clamp(105px, 20.4vw, 146px);
+    }
+
+    .sticker-zone .sticker-2,
+    .sticker-zone .sticker-4,
+    .sticker-zone .sticker-7 {
+        width: clamp(99px, 18.7vw, 133px);
+    }
+
+    .sticker-zone .sticker-8 {
+        width: clamp(99px, 17vw, 126px);
+    }
+
+    .sticker-zone .sticker-10,
+    .sticker-zone .sticker-11 {
+        width: clamp(116px, 22.1vw, 146px);
+    }
+
+    .sticker-zone .sticker-5,
+    .sticker-zone .sticker-9 {
+        width: clamp(105px, 20.4vw, 139px);
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .sticker-zone .sticker-1,
+    .sticker-zone .sticker-3,
+    .sticker-zone .sticker-6,
+    .sticker-zone .sticker-10,
+    .sticker-zone .sticker-11 {
+        width: 105px;
+    }
+
+    .sticker-zone .sticker-2,
+    .sticker-zone .sticker-4,
+    .sticker-zone .sticker-7 {
+        width: 95px;
+    }
+
+    .sticker-zone .sticker-8 {
+        width: 92px;
+    }
+
+    .sticker-zone .sticker-5,
+    .sticker-zone .sticker-9 {
+        width: 99px;
+    }
+}
+
+/* =========================================================
+   STICKERS ALWAYS ON TOP
+   Keep every sticker above text, cards, sections, and other
+   decorative/content elements at every breakpoint.
+   ========================================================= */
+.sticker-zone .sticker {
+    z-index: 9999 !important;
+    position: absolute;
+    pointer-events: none;
+}
+
+.sticker-zone .sticker img {
+    position: relative;
+    z-index: 9999 !important;
 }
