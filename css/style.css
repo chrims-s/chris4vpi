@@ -1,4 +1,4 @@
-/* CHRIS 4 VPI â€” PASTEL COLLAGE / SCRAPBOOK THEME */
+/* CHRIS 4 VPI — PASTEL COLLAGE / SCRAPBOOK THEME */
 
 :root {
     --paper: #fffaf1;
@@ -371,7 +371,7 @@ nav a.active {
 }
 
 .intro-photo::after {
-    content: "CSESoc â™¡";
+    content: "CSESoc ♡";
     position: absolute;
     z-index: 3;
     right: -24px;
@@ -534,7 +534,7 @@ nav a.active {
 }
 
 .section-content li::before {
-    content: "âœ¦";
+    content: "✦";
     display: block;
     margin-bottom: 9px;
     font-family: Georgia, serif;
@@ -1687,7 +1687,7 @@ body.lightbox-open {
 }
 
 .pull-quote::before {
-    content: "â˜…";
+    content: "★";
     position: absolute;
     top: -14px;
     left: -12px;
@@ -1846,7 +1846,7 @@ body.lightbox-open {
 }
 
 /* =========================================================
-   PHONE STICKERS â€” 70% LARGER
+   PHONE STICKERS — 70% LARGER
    Applies only below 901px.
    ========================================================= */
 @media screen and (max-width: 900px) {
