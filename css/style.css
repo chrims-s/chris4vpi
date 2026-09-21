@@ -1,3 +1,5 @@
+/* CHRIS 4 VPI â€” PASTEL COLLAGE / SCRAPBOOK THEME */
+
 :root {
     --paper: #fffaf1;
     --ink: #403b45;
@@ -15,11 +17,17 @@
     --soft-shadow: 0 7px 18px rgba(77, 66, 72, .09);
     --border: rgba(64,59,69,.16);
 }
+
+/* BASE */
+
 * {
+    box-sizing: border-box;
 }
 
 html {
     scroll-behavior: smooth;
+    width: 100%;
+    max-width: 100%;
     overflow-x: clip;
 }
 
@@ -28,6 +36,8 @@ body {
     background: var(--paper);
     color: var(--ink);
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    width: 100%;
+    max-width: 100%;
     overflow-x: clip;
     line-height: 1.6;
 }
@@ -45,6 +55,9 @@ body::before {
     background-position: 0 0, 9px 11px;
     background-size: 17px 17px, 23px 23px;
 }
+
+/* NAVIGATION */
+
 .header {
     position: sticky;
     top: 0;
@@ -69,6 +82,7 @@ body::before {
     display: flex;
     align-items: center;
     justify-content: center;
+    transform: none;
 }
 
 .logo img {
@@ -124,9 +138,13 @@ nav a:hover {
 nav a.active {
     color: var(--ink);
     background: var(--butter);
+    font-size: 12px;
     font-weight: 700;
     box-shadow: 0 2px 0 rgba(64,59,69,.10);
 }
+
+/* SECTION FRAMEWORK */
+
 .section {
     position: relative;
     isolation: isolate;
@@ -173,6 +191,9 @@ nav a.active {
     border-radius: 47% 53% 58% 42%;
     transform: rotate(14deg);
 }
+
+/* SIDEBAR */
+
 .section-sidebar {
     grid-column: 1;
     display: flex;
@@ -224,6 +245,9 @@ nav a.active {
     font-style: italic;
     color: rgba(64,59,69,.65);
 }
+
+/* CONTENT & TYPOGRAPHY */
+
 .section-content {
     grid-column: 2;
     width: min(1100px, 100%);
@@ -279,6 +303,9 @@ nav a.active {
 .section-content > p:nth-of-type(3) {
     margin-left: clamp(0px, .8vw, 10px);
 }
+
+/* INTRO */
+
 .intro-content {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(300px, .82fr);
@@ -344,7 +371,7 @@ nav a.active {
 }
 
 .intro-photo::after {
-    content: "CSESoc ♡";
+    content: "CSESoc â™¡";
     position: absolute;
     z-index: 3;
     right: -24px;
@@ -404,6 +431,9 @@ nav a.active {
     display: block;
     flex-shrink: 0;
 }
+
+/* EVENTS & INITIATIVES */
+
 #events {
     background:
         radial-gradient(circle at 12% 18%, rgba(255,255,255,.72) 0 2px, transparent 3px),
@@ -432,6 +462,7 @@ nav a.active {
 .events-gallery {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: auto;
     gap: 24px;
     margin-top: 18px;
     padding: 16px 8px 28px;
@@ -476,8 +507,12 @@ nav a.active {
     height: auto;
     object-fit: contain;
     display: block;
+    box-sizing: border-box;
     border: 1px solid rgba(64,59,69,.11);
 }
+
+/* VISIONS */
+
 .section-content ul {
     list-style: none;
     padding: 0;
@@ -499,7 +534,7 @@ nav a.active {
 }
 
 .section-content li::before {
-    content: "✦";
+    content: "âœ¦";
     display: block;
     margin-bottom: 9px;
     font-family: Georgia, serif;
@@ -514,6 +549,9 @@ nav a.active {
 .section-content li:hover {
     transform: translateY(-4px) rotate(0deg);
 }
+
+/* MEMORIES INTRO */
+
 .memories-intro {
     max-width: 760px !important;
     margin: -12px 0 12px !important;
@@ -528,8 +566,13 @@ nav a.active {
     box-shadow: 3px 4px 0 rgba(143,184,197,.16);
     transform: rotate(-.5deg);
 }
+
+/* MEMORIES */
+
 .carousel {
     position: relative;
+    width: 100%;
+    max-width: 100%;
     min-width: 0;
     display: flex;
     align-items: center;
@@ -600,6 +643,9 @@ nav a.active {
     opacity: .35;
     cursor: default;
 }
+
+/* CONTACT */
+
 .contact-links {
     display: flex;
     flex-direction: row;
@@ -659,9 +705,14 @@ nav a.active {
     border-left: 4px solid rgba(217,158,167,.65);
     transform: rotate(-.7deg);
 }
+
+/* COLLAGE STICKERS */
+
 .sticker-zone {
     position: relative;
 }
+
+/* Allow sticker artwork to cross section boundaries. */
 .section:has(.sticker-zone) {
     overflow: visible;
     z-index: 2;
@@ -790,15 +841,21 @@ nav a.active {
         translate: 0 -4px;
     }
 }
+
+/* RESPONSIVE STICKERS */
+
 @media screen and (min-width: 901px) and (max-width: 1100px) {
-.sticker-zone > h2,
+    /* Keep a clear right-hand gutter between the stickers and the copy. */
+    .sticker-zone > h2,
     .sticker-zone > p,
     .sticker-zone > ul {
         position: relative;
         z-index: 10;
         max-width: calc(100% - 240px);
     }
-#about .sticker-1 {
+
+    /* About Me sticker placement. */
+    #about .sticker-1 {
         top: 175px;
         right: 0;
         width: 175px;
@@ -810,7 +867,9 @@ nav a.active {
         bottom: auto;
         width: 175px;
     }
-#experience .sticker-3 {
+
+    /* Experience sticker placement. */
+    #experience .sticker-3 {
         top: 280px;
         right: 0;
         width: 215px;
@@ -821,13 +880,17 @@ nav a.active {
         right: 0;
         width: 215px;
     }
-#experience .sticker-5 {
+
+    /* Move sticker 5 down/left so it stays clear of the text box. */
+    #experience .sticker-5 {
         top: auto;
         bottom: -55px;
         left: -165px;
         width: 180px;
     }
-.sticker-zone .sticker-6,
+
+    /* Keep the other right-side stickers in the outer gutter. */
+    .sticker-zone .sticker-6,
     .sticker-zone .sticker-7,
     .sticker-zone .sticker-8,
     .sticker-zone .sticker-10,
@@ -839,18 +902,24 @@ nav a.active {
     #why-vpi .sticker-7 {
         width: 170px;
     }
-#visions .sticker-8 {
+
+    /* Sticker 8 slightly left/up. */
+    #visions .sticker-8 {
         right: 0;
         top: 55px;
         width: 180px;
     }
-#visions .sticker-9 {
+
+    /* Move sticker 9 down/left so it stays clear of the text box. */
+    #visions .sticker-9 {
         top: auto;
         bottom: -55px;
         left: -165px;
         width: 180px;
     }
-#visions .sticker-10 {
+
+    /* Slightly larger sticker 10 on tablet only. */
+    #visions .sticker-10 {
         right: 0;
         bottom: 35px;
         width: 245px;
@@ -862,7 +931,9 @@ nav a.active {
 }
 
 @media screen and (max-width: 900px) {
-#about {
+    /* Keep the About section above the following section so sticker-2 can
+       extend past the section boundary without being covered by the next section. */
+    #about {
         z-index: 5;
     }
 
@@ -877,14 +948,18 @@ nav a.active {
         max-width: 100%;
         padding-right: clamp(58px, 12vw, 86px);
     }
-.sticker-zone > h2,
+
+    /* Keep content above decorative artwork. */
+    .sticker-zone > h2,
     .sticker-zone > p,
     .sticker-zone > ul {
         position: relative;
         z-index: 10;
         max-width: 100%;
     }
-.sticker-zone .sticker-1,
+
+    /* Shared right-edge alignment. */
+    .sticker-zone .sticker-1,
     .sticker-zone .sticker-2,
     .sticker-zone .sticker-3,
     .sticker-zone .sticker-4,
@@ -896,16 +971,22 @@ nav a.active {
         right: 0;
         left: auto;
     }
-.sticker-zone .sticker-1 { top: -115px; width: clamp(62px, 12vw, 86px); }
+
+    /* Top-right stickers. */
+    .sticker-zone .sticker-1 { top: -115px; width: clamp(62px, 12vw, 86px); }
     .sticker-zone .sticker-3 { top: -55px; width: clamp(62px, 12vw, 86px); }
     .sticker-zone .sticker-6 { top: -115px; width: clamp(62px, 12vw, 86px); }
     .sticker-zone .sticker-8 { top: -95px; width: clamp(58px, 10vw, 74px); }
     .sticker-zone .sticker-11 { top: 25px; width: clamp(68px, 13vw, 86px); }
-.sticker-zone .sticker-2 { top: auto; bottom: -80px; width: clamp(58px, 11vw, 78px); }
+
+    /* Bottom-right stickers. */
+    .sticker-zone .sticker-2 { top: auto; bottom: -80px; width: clamp(58px, 11vw, 78px); }
     .sticker-zone .sticker-4 { top: auto; bottom: -45px; width: clamp(58px, 11vw, 78px); }
     .sticker-zone .sticker-7 { top: auto; bottom: -45px; width: clamp(58px, 11vw, 78px); }
     .sticker-zone .sticker-10 { top: auto; bottom: -15px; width: clamp(68px, 13vw, 86px); }
-.sticker-zone .sticker-5,
+
+    /* Bottom-left stickers. */
+    .sticker-zone .sticker-5,
     .sticker-zone .sticker-9 {
         top: auto;
         left: -8px;
@@ -915,6 +996,9 @@ nav a.active {
     .sticker-zone .sticker-5 { bottom: -80px; width: clamp(62px, 12vw, 82px); }
     .sticker-zone .sticker-9 { bottom: -30px; width: clamp(62px, 12vw, 82px); }
 }
+
+/* Lightboxes */
+
 body.lightbox-open {
     overflow: hidden;
 }
@@ -929,6 +1013,7 @@ body.lightbox-open {
     align-items: center;
     justify-content: center;
     padding: 35px;
+    box-sizing: border-box;
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
@@ -1094,6 +1179,7 @@ body.lightbox-open {
     grid-row: 1;
     justify-self: center;
     width: min(88%, 620px);
+    box-sizing: border-box;
     position: relative;
     text-align: center;
     margin: 0 0 20px;
@@ -1106,6 +1192,9 @@ body.lightbox-open {
     transform: rotate(-1.5deg);
 }
 
+/* No tape on event lightbox info */
+
+/* little strips of scrapbook tape across the top of the note */
 .event-lightbox-info::before,
 .event-lightbox-info::after {
     content: "";
@@ -1156,6 +1245,7 @@ body.lightbox-open {
     width: 100%;
     max-height: min(68vh, 760px);
     overflow: hidden;
+    box-sizing: border-box;
     padding: 11px;
     background: #fffdf8;
     border: 1px solid rgba(64,59,69,.16);
@@ -1180,12 +1270,15 @@ body.lightbox-open {
     min-width: 0;
     max-width: none;
     object-fit: contain;
+    box-sizing: border-box;
     display: none;
 }
 
 .event-lightbox-track img.active {
     display: block;
 }
+
+/* Intro video */
 .intro-video-lightbox-content {
     position: relative;
     z-index: 1;
@@ -1279,7 +1372,8 @@ body.lightbox-open {
 
     .section-label {
         writing-mode: horizontal-tb;
-            font-size: 10px;
+        transform: none;
+        font-size: 10px;
         letter-spacing: 2px;
     }
 
@@ -1324,7 +1418,8 @@ body.lightbox-open {
 
     .events-gallery {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 12px;
+        grid-auto-rows: auto;
+        gap: 12px;
         padding: 15px 8px 22px;
     }
 
@@ -1519,6 +1614,8 @@ body.lightbox-open {
         font-size: 12px;
     }
 }
+
+/* SECTION PATTERNS */
 .section.pattern-dots,.section.pattern-grid,.section.pattern-scribbles,.section.pattern-confetti,.section.pattern-crosses,.section.pattern-checks,.section.pattern-film,.section.pattern-stars{background-repeat:repeat,no-repeat,no-repeat,no-repeat;}
 #intro.pattern-dots{background-image:radial-gradient(circle,rgba(64,59,69,.12) 1px,transparent 1.4px),radial-gradient(circle,rgba(255,255,255,.72) 1px,transparent 1.5px),radial-gradient(circle at 88% 18%,rgba(245,231,183,.55) 0 72px,transparent 73px),linear-gradient(135deg,rgba(219,234,240,.95),rgba(234,243,246,.92));background-size:31px 31px,47px 47px,auto,auto;background-position:7px 4px,18px 21px,0 0,0 0;}
 #about.pattern-grid{background-image:linear-gradient(rgba(64,59,69,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(64,59,69,.055) 1px,transparent 1px),radial-gradient(circle at 82% 20%,rgba(244,216,216,.38) 0 78px,transparent 79px),linear-gradient(135deg,rgba(223,232,215,.95),rgba(238,242,232,.92));background-size:42px 42px,42px 42px,auto,auto;}
@@ -1530,6 +1627,9 @@ body.lightbox-open {
 #contact.pattern-stars{background-image:radial-gradient(circle,rgba(64,59,69,.075) 1px,transparent 1.25px),repeating-linear-gradient(45deg,rgba(255,255,255,.22) 0 2px,transparent 2px 16px),repeating-linear-gradient(-45deg,rgba(217,158,167,.055) 0 1px,transparent 1px 22px),linear-gradient(135deg,rgba(223,232,215,.96),rgba(238,242,232,.94));background-size:28px 28px,auto,auto,auto;background-position:2px 4px,0 0,0 0,0 0;}
 #intro.pattern-dots::before{border-style:dashed;}#about.pattern-grid::before{transform:rotate(-9deg);}#experience.pattern-scribbles::before{transform:rotate(7deg);}#events.pattern-confetti::before{transform:rotate(-5deg);}#why-vpi.pattern-crosses::before{transform:rotate(11deg);}#visions.pattern-checks::before{transform:rotate(-7deg);}#memories.pattern-film::before{transform:rotate(5deg);}#contact.pattern-stars::before{transform:rotate(-12deg);}
 @media(max-width:700px){#intro.pattern-dots,#about.pattern-grid,#why-vpi.pattern-crosses,#contact.pattern-stars{background-size:48px 48px,64px 64px,auto,auto;}#visions.pattern-checks{background-size:26px 26px,26px 26px,auto,auto;}#experience.pattern-scribbles{background-size:140px 140px,auto,auto;}}
+
+/* TYPOGRAPHIC COLLAGE */
+
 .text-pop {
     font-weight: 800;
     color: var(--ink);
@@ -1587,7 +1687,7 @@ body.lightbox-open {
 }
 
 .pull-quote::before {
-    content: "★";
+    content: "â˜…";
     position: absolute;
     top: -14px;
     left: -12px;
@@ -1709,14 +1809,16 @@ body.lightbox-open {
     #events .events-gallery {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         grid-template-rows: none;
-            gap: 12px;
+        grid-auto-rows: auto;
+        gap: 12px;
         padding-left: 4px;
         padding-right: 4px;
     }
 
     #events .event-card {
         width: 100%;
-            padding: 6px;
+        box-sizing: border-box;
+        padding: 6px;
         overflow: visible;
     }
 
@@ -1742,6 +1844,11 @@ body.lightbox-open {
         padding: 5px;
     }
 }
+
+/* =========================================================
+   PHONE STICKERS â€” 70% LARGER
+   Applies only below 901px.
+   ========================================================= */
 @media screen and (max-width: 900px) {
     .sticker-zone .sticker-1,
     .sticker-zone .sticker-3,
@@ -1794,6 +1901,12 @@ body.lightbox-open {
         width: 99px;
     }
 }
+
+/* =========================================================
+   STICKERS ALWAYS ON TOP
+   Keep every sticker above text, cards, sections, and other
+   decorative/content elements at every breakpoint.
+   ========================================================= */
 .sticker-zone .sticker {
     z-index: 9999 !important;
     position: absolute;
