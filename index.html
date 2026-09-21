@@ -5,14 +5,11 @@
     <title>Chris 4 VPI!!!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="images/favicon-1.png">
-
-    <!-- CSS Stylesheet -->
-    <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-   <!-- Navigation Header -->
-    <header class="header">
+<header class="header">
         <div class="logo">
             <img src="images/header-logo.png" alt="logo">
         </div>
@@ -28,13 +25,7 @@
             <a href="#contact">Get in Contact</a>
         </nav>
     </header>
-
-
-    <!-- =========================
-        Intro
-    ========================= -->
-
-    <section id="intro" class="section blue pattern-dots">
+<section id="intro" class="section blue pattern-dots">
 
         <div class="section-sidebar">
             <div class="section-label">Intro</div>
@@ -73,13 +64,7 @@
         </div>
 
     </section>
-
-
-    <!-- =========================
-        About Me
-    ========================= -->
-
-    <section id="about" class="section green pattern-grid">
+<section id="about" class="section green pattern-grid">
 
         <div class="section-sidebar">
             <div class="section-label">About Me</div>
@@ -123,13 +108,7 @@
         </div>
 
     </section>
-
-
-    <!-- =========================
-        My Experience
-    ========================= -->
-
-    <section id="experience" class="section red pattern-scribbles">
+<section id="experience" class="section red pattern-scribbles">
 
         <div class="section-sidebar">
             <div class="section-label">My Experience</div>
@@ -190,13 +169,7 @@
         </div>
 
     </section>
-
-
-    <!-- =========================
-        Events
-    ========================= -->
-
-    <section id="events" class="section blue pattern-confetti">
+<section id="events" class="section blue pattern-confetti">
 
         <div class="section-sidebar">
             <div class="section-label">Events + Initiatives</div>
@@ -209,7 +182,7 @@
             <h2>Events + Initiatives</h2>
 
             <p>
-                A little scrapbook of what HR has been up to over the past two years
+                A little peak into what HR has been up to over the past two years
                 (<strong class="marker marker-yellow">click the photos!</strong>)
             </p>
 
@@ -237,13 +210,7 @@
         </div>
 
     </section>
-
-
-    <!-- =========================
-        Why VPI
-    ========================= -->
-
-    <section id="why-vpi" class="section green pattern-crosses">
+<section id="why-vpi" class="section green pattern-crosses">
 
         <div class="section-sidebar">
             <div class="section-label">Why VPI?</div>
@@ -286,13 +253,7 @@
         </div>
 
     </section>
-
-
-    <!-- =========================
-        Visions
-    ========================= -->
-
-    <section id="visions" class="section red pattern-checks">
+<section id="visions" class="section red pattern-checks">
 
         <div class="section-sidebar">
             <div class="section-label">Visions for 2027</div>
@@ -361,13 +322,7 @@
         </div>
 
     </section>
-
-
-    <!-- =========================
-        Memories
-    ========================= -->
-
-    <section id="memories" class="section blue pattern-film">
+<section id="memories" class="section blue pattern-film">
 
         <div class="section-sidebar">
             <div class="section-label">Memories</div>
@@ -417,12 +372,7 @@
         </div>
 
     </section>
-
-    <!-- =========================
-        Empty Section
-    ========================= -->
-
-    <section id="contact" class="section green pattern-stars">
+<section id="contact" class="section green pattern-stars">
         <div class="section-sidebar">
             <div class="section-label">Get in Contact</div>
             <div class="section-line"></div>
@@ -457,10 +407,7 @@
             </p>
         </div>
     </section>
-
-
-    <!-- Intro Video Lightbox -->
-    <div class="intro-video-lightbox" id="introVideoLightbox" aria-hidden="true">
+<div class="intro-video-lightbox" id="introVideoLightbox" aria-hidden="true">
         <div class="intro-video-lightbox-backdrop"></div>
 
         <div class="intro-video-lightbox-content" role="dialog" aria-modal="true"
@@ -479,9 +426,7 @@
 
         </div>
     </div>
-
-    <!-- Events + Initiatives Individual Carousels -->
-    <div class="event-lightbox" id="eventLightbox" aria-hidden="true">
+<div class="event-lightbox" id="eventLightbox" aria-hidden="true">
         <div class="event-lightbox-backdrop"></div>
 
         <div class="event-lightbox-content" role="dialog" aria-modal="true"
@@ -508,9 +453,7 @@
             <div class="event-lightbox-dots" id="eventLightboxDots" aria-label="Photo navigation"></div>
         </div>
     </div>
-
-    <!-- Memory Image Lightbox -->
-    <div class="memory-lightbox" id="memoryLightbox" aria-hidden="true">
+<div class="memory-lightbox" id="memoryLightbox" aria-hidden="true">
         <div class="memory-lightbox-backdrop"></div>
         <div class="memory-lightbox-content" role="dialog" aria-modal="true" aria-label="Expanded memory photo">
             <button class="memory-lightbox-close" type="button" aria-label="Close expanded photo">&times;</button>
@@ -557,8 +500,6 @@
 
         window.addEventListener('resize', updateCarousel);
         updateCarousel();
-
-        // Events + Initiatives: each card has its own 5-photo carousel
         const eventCards = Array.from(document.querySelectorAll('.event-card'));
         const eventLightbox = document.getElementById('eventLightbox');
         const eventLightboxTrack = document.getElementById('eventLightboxTrack');
@@ -567,9 +508,6 @@
         const eventPrevButton = eventLightbox.querySelector('.event-lightbox-button.prev');
         const eventNextButton = eventLightbox.querySelector('.event-lightbox-button.next');
         const eventDots = document.getElementById('eventLightboxDots');
-
-        // Change these filenames to the images belonging to each event.
-        // Each inner array represents ONE event's carousel.
         const eventData = [
             {
                 title: 'Socwide Roadtrip 2025',
@@ -779,9 +717,6 @@
 
         eventLightboxClose.addEventListener('click', closeEventLightbox);
         eventLightboxBackdrop.addEventListener('click', closeEventLightbox);
-
-
-        // Intro video lightbox
         const introVideoLightbox = document.getElementById('introVideoLightbox');
         const introVideo = document.getElementById('introVideo');
         const introVideoLink = document.getElementById('introVideoLink');
@@ -794,8 +729,6 @@
             document.body.classList.add('lightbox-open');
 
             introVideo.currentTime = 0;
-
-            // Keep the video paused so the browser's native play button is shown.
             introVideo.pause();
 
             introVideoClose.focus();
@@ -815,11 +748,7 @@
 
         introVideoClose.addEventListener('click', closeIntroVideo);
         introVideoBackdrop.addEventListener('click', closeIntroVideo);
-
-        // Open automatically when the website loads.
         window.addEventListener('load', openIntroVideo);
-
-        // Memory image lightbox
         const lightbox = document.getElementById('memoryLightbox');
         const lightboxImage = document.getElementById('memoryLightboxImage');
         const lightboxCaption = document.getElementById('memoryLightboxCaption');
